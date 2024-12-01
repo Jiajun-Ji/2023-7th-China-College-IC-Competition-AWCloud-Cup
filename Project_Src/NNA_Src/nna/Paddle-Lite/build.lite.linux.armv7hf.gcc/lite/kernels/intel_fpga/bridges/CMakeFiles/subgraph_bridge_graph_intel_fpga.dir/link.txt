@@ -1,0 +1,2 @@
+/opt/software/gcc-linaro-5.4.1-2017.05-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-ar qc libsubgraph_bridge_graph_intel_fpga.a  CMakeFiles/subgraph_bridge_graph_intel_fpga.dir/graph.cc.o
+/opt/software/gcc-linaro-5.4.1-2017.05-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-ranlib libsubgraph_bridge_graph_intel_fpga.a

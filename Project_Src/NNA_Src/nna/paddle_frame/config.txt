@@ -1,0 +1,12 @@
+model_file test_818.nb 
+label_path ./labels/label_list_my
+num_threads 2 
+precision int8/float3
+enable_benchmark 0
+arch mobilenetv1 
+image_shape 3,300,300
+Resize 300,300
+keep_ratio False
+mean 127.5,127.5,127.5
+std 127.502231,127.502231,127.502231
+PadStride 0

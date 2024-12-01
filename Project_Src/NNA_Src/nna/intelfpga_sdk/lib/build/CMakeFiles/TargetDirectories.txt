@@ -1,0 +1,3 @@
+/opt/nna/intelfpga_sdk/lib/build/CMakeFiles/rebuild_cache.dir
+/opt/nna/intelfpga_sdk/lib/build/CMakeFiles/edit_cache.dir
+/opt/nna/intelfpga_sdk/lib/build/CMakeFiles/vnna.dir
