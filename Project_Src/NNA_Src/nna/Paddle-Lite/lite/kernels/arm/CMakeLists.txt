@@ -1,0 +1,113 @@
+# NOTE we leave the add_kernel not protected by LITE_WITH_ARM so that all the kernels will be registered
+# to the model_optimize_tool.
+
+if(LITE_WITH_ARM AND NOT LITE_ON_MODEL_OPTIMIZE_TOOL)
+  set(IS_FAKED_KERNEL false CACHE INTERNAL "")
+  set(lite_kernel_deps ${lite_kernel_deps} math_arm CACHE INTERNAL "")
+elseif(LITE_ON_MODEL_OPTIMIZE_TOOL OR LITE_WITH_PYTHON)
+  set(IS_FAKED_KERNEL true CACHE INTERNAL "")
+else()
+  return()
+endif()
+
+message(STATUS "compile with lite ARM kernels")
+
+# 1. basic kernels for basic models
+# for conv op
+add_kernel(conv_depthwise ARM basic SRCS conv_depthwise.cc)
+add_kernel(conv_depthwise_common ARM basic SRCS conv_depthwise_common.cc)
+add_kernel(conv_direct ARM basic SRCS conv_direct.cc)
+add_kernel(conv_gemmlike ARM basic SRCS conv_gemmlike.cc)
+add_kernel(conv_winograd ARM basic SRCS conv_winograd.cc)
+add_kernel(conv_compute_arm ARM basic SRCS conv_compute.cc)
+
+add_kernel(fc_compute_arm ARM basic SRCS fc_compute.cc)
+add_kernel(activation_compute_arm ARM basic SRCS activation_compute.cc)
+add_kernel(mul_compute_arm ARM basic SRCS mul_compute.cc)
+add_kernel(matmul_compute_arm ARM basic SRCS matmul_compute.cc)
+add_kernel(scale_compute_arm ARM basic SRCS scale_compute.cc)
+add_kernel(softmax_compute_arm ARM basic SRCS softmax_compute.cc)
+add_kernel(batch_norm_compute_arm ARM basic SRCS batch_norm_compute.cc)
+add_kernel(elementwise_compute_arm ARM basic SRCS elementwise_compute.cc)
+
+add_kernel(pool_compute_arm ARM basic SRCS pool_compute.cc)
+add_kernel(concat_compute_arm ARM basic SRCS concat_compute.cc)
+add_kernel(pad2d_compute_arm ARM basic SRCS pad2d_compute.cc)
+add_kernel(calib_compute_arm ARM basic SRCS calib_compute.cc)
+add_kernel(calib_inplace_compute_arm ARM basic SRCS calib_inplace_compute.cc)
+add_kernel(transpose_compute_arm ARM basic SRCS transpose_compute.cc)
+add_kernel(argmax_compute_arm ARM basic SRCS argmax_compute.cc)
+add_kernel(conv_transpose_compute_arm ARM basic SRCS conv_transpose_compute.cc)
+add_kernel(depthwise_conv_transpose_compute_arm ARM extra SRCS depthwise_conv_transpose_compute.cc)
+add_kernel(interpolate_compute_arm ARM basic SRCS interpolate_compute.cc)
+add_kernel(box_coder_compute_arm ARM basic SRCS box_coder_compute.cc)
+add_kernel(slice_compute_arm ARM basic SRCS slice_compute.cc)
+add_kernel(reduce_mean_compute_arm ARM basic SRCS reduce_mean_compute.cc)
+add_kernel(affine_channel_compute_arm ARM basic SRCS affine_channel_compute.cc)
+add_kernel(affine_grid_compute_arm ARM basic SRCS affine_grid_compute.cc)
+add_kernel(dropout_compute_arm ARM basic SRCS dropout_compute.cc)
+add_kernel(layout_compute_arm ARM basic SRCS layout_compute.cc)
+add_kernel(instance_norm_compute_arm ARM basic SRCS instance_norm_compute.cc)
+add_kernel(grid_sampler_compute_arm ARM basic SRCS grid_sampler_compute.cc)
+add_kernel(rnn_compute_arm ARM extra SRCS rnn_compute.cc)
+
+## 2.other basic kernels: basic kernels that not used in basic models
+add_kernel(activation_extra_compute_arm ARM extra SRCS activation_extra_compute.cc)
+add_kernel(negative_compute_arm ARM extra SRCS negative_compute.cc)
+add_kernel(pow_compute_arm ARM extra SRCS pow_compute.cc)
+add_kernel(group_norm_compute ARM extra SRCS group_norm_compute.cc)
+## 3. extra kernels
+add_kernel(sparse_conv_compute_arm ARM extra SRCS sparse_conv_compute.cc)
+add_kernel(lrn_compute_arm ARM extra SRCS lrn_compute.cc)
+add_kernel(decode_bboxes_compute_arm ARM extra SRCS decode_bboxes_compute.cc)
+add_kernel(axpy_compute_arm ARM extra SRCS axpy_compute.cc)
+add_kernel(reduce_max_compute_arm ARM extra SRCS reduce_max_compute.cc)
+add_kernel(reduce_min_compute_arm ARM extra SRCS reduce_min_compute.cc)
+add_kernel(sequence_pool_compute_arm ARM extra SRCS sequence_pool_compute.cc)
+add_kernel(sequence_conv_compute_arm ARM extra SRCS sequence_conv_compute.cc)
+add_kernel(layer_norm_compute_arm ARM extra SRCS layer_norm_compute.cc)
+add_kernel(reduce_prod_compute_arm ARM extra SRCS reduce_prod_compute.cc)
+add_kernel(reduce_sum_compute_arm ARM extra SRCS reduce_sum_compute.cc)
+add_kernel(split_lod_tensor_compute_arm ARM extra SRCS split_lod_tensor_compute.cc)
+add_kernel(clip_compute_arm ARM extra SRCS clip_compute.cc)
+add_kernel(pixel_shuffle_compute_arm ARM extra SRCS pixel_shuffle_compute.cc)
+add_kernel(scatter_compute_arm ARM extra SRCS scatter_compute.cc)
+add_kernel(sequence_expand_as_compute_arm ARM extra SRCS sequence_expand_as_compute.cc)
+add_kernel(matmul_v2_compute ARM extra SRCS matmul_v2_compute.cc)
+add_kernel(sum_compute ARM extra SRCS sum_compute.cc)
+
+
+# for OCR specific
+add_kernel(gru_unit_compute_arm ARM extra SRCS gru_unit_compute.cc)
+add_kernel(gru_compute_arm ARM extra SRCS gru_compute.cc)
+add_kernel(lookup_table_compute_arm ARM extra SRCS lookup_table_compute.cc)
+add_kernel(lookup_table_dequant_compute_arm ARM extra SRCS lookup_table_dequant_compute.cc)
+add_kernel(lstm_arm ARM extra SRCS lstm_compute.cc)
+
+# for deformable-convNet
+add_kernel(deformable_conv_compute_arm ARM extra SRCS deformable_conv_compute.cc)
+
+# 4. training kernels
+add_kernel(mean_compute_arm ARM extra SRCS mean_compute.cc)
+
+add_kernel(mean_grad_compute_arm ARM train SRCS mean_grad_compute.cc)
+add_kernel(elementwise_grad_compute_arm ARM train SRCS elementwise_grad_compute.cc)
+add_kernel(mul_grad_compute_arm ARM train SRCS mul_grad_compute.cc)
+add_kernel(sgd_compute_arm ARM train SRCS sgd_compute.cc)
+add_kernel(sequence_pool_grad_compute_arm ARM train SRCS sequence_pool_grad_compute.cc)
+
+lite_cc_test(test_scale_compute_arm SRCS scale_compute_test.cc)
+lite_cc_test(test_softmax_compute_arm SRCS softmax_compute_test.cc)
+lite_cc_test(test_batch_norm_compute_arm SRCS batch_norm_compute_test.cc)
+lite_cc_test(test_pool_compute_arm SRCS pool_compute_test.cc)
+lite_cc_test(test_mul_compute_arm SRCS mul_compute_test.cc)
+lite_cc_test(test_concat_compute_arm SRCS concat_compute_test.cc)
+lite_cc_test(test_transpose_compute_arm SRCS transpose_compute_test.cc)
+lite_cc_test(test_dropout_compute_arm SRCS dropout_compute_test.cc)
+if(LITE_BUILD_EXTRA)
+    lite_cc_test(test_split_lod_tensor_compute_arm SRCS split_lod_tensor_compute_test.cc)
+    lite_cc_test(test_lrn_compute_arm SRCS lrn_compute_test.cc)
+    lite_cc_test(test_decode_bboxes_compute_arm SRCS decode_bboxes_compute_test.cc)
+    lite_cc_test(test_axpy_compute_arm SRCS axpy_compute_test.cc)
+    lite_cc_test(test_layer_norm_compute_arm SRCS layer_norm_compute_test.cc)
+endif()

@@ -1,0 +1,13 @@
+/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/third_party/install/gflags/lib/libgflags.a
+/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/third_party/install/gflags/lib/libgflags_nothreads.a
+/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/third_party/install/gflags/include/gflags/gflags.h
+/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/third_party/install/gflags/include/gflags/gflags_declare.h
+/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/third_party/install/gflags/include/gflags/gflags_completions.h
+/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/third_party/install/gflags/include/gflags/gflags_gflags.h
+/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/third_party/install/gflags/lib/cmake/gflags/gflags-config.cmake
+/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/third_party/install/gflags/lib/cmake/gflags/gflags-config-version.cmake
+/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/third_party/install/gflags/lib/cmake/gflags/gflags-targets.cmake
+/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/third_party/install/gflags/lib/cmake/gflags/gflags-targets-minsizerel.cmake
+/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/third_party/install/gflags/bin/gflags_completions.sh
+/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/third_party/install/gflags/lib/pkgconfig/gflags.pc
+/root/.cmake/packages/gflags/3e747fe93549c38332f56737052633fa

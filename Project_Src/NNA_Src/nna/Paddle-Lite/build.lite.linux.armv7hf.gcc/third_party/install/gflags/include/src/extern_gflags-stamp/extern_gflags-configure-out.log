@@ -1,0 +1,36 @@
+loading initial cache file /opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/third_party/install/gflags/include/tmp/extern_gflags-cache-Release.cmake
+-- The CXX compiler identification is GNU 5.4.1
+-- Check for working CXX compiler: /opt/software/gcc-linaro-5.4.1-2017.05-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++
+-- Check for working CXX compiler: /opt/software/gcc-linaro-5.4.1-2017.05-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Looking for C++ include unistd.h
+-- Looking for C++ include unistd.h - found
+-- Looking for C++ include stdint.h
+-- Looking for C++ include stdint.h - found
+-- Looking for C++ include inttypes.h
+-- Looking for C++ include inttypes.h - found
+-- Looking for C++ include sys/types.h
+-- Looking for C++ include sys/types.h - found
+-- Looking for C++ include sys/stat.h
+-- Looking for C++ include sys/stat.h - found
+-- Looking for C++ include fnmatch.h
+-- Looking for C++ include fnmatch.h - found
+-- Looking for C++ include stddef.h
+-- Looking for C++ include stddef.h - found
+-- Check size of uint32_t
+-- Check size of uint32_t - done
+-- Looking for strtoll
+-- Looking for strtoll - found
+-- Looking for C++ include pthread.h
+-- Looking for C++ include pthread.h - found
+-- Looking for pthread_create
+-- Looking for pthread_create - found
+-- Found Threads: TRUE  
+-- Check size of pthread_rwlock_t
+-- Check size of pthread_rwlock_t - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/third_party/install/gflags/include/src/extern_gflags-build

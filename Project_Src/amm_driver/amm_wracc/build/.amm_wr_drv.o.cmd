@@ -1,0 +1,1 @@
+cmd_/opt/amm_wracc/build/amm_wr_drv.o := /opt/software/gcc-linaro-5.4.1-2017.05-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-ld -EL    -r -o /opt/amm_wracc/build/amm_wr_drv.o /opt/amm_wracc/build/../src/amm_wr_drv.o 

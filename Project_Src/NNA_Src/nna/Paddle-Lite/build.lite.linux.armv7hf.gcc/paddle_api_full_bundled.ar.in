@@ -1,0 +1,17 @@
+CREATE /opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/libpaddle_api_full_bundled.a
+ADDLIB $<TARGET_FILE:paddle_api_full>
+ADDLIB $<TARGET_FILE:framework_proto>
+ADDLIB $<TARGET_FILE:protobuf>
+ADDLIB $<TARGET_FILE:core>
+ADDLIB $<TARGET_FILE:target_wrapper_host>
+ADDLIB $<TARGET_FILE:intel_fpga_target_wrapper>
+ADDLIB $<TARGET_FILE:ops>
+ADDLIB $<TARGET_FILE:utils>
+ADDLIB $<TARGET_FILE:kernels>
+ADDLIB $<TARGET_FILE:math_host>
+ADDLIB $<TARGET_FILE:math_arm>
+ADDLIB $<TARGET_FILE:subgraph_bridge_graph_intel_fpga>
+ADDLIB $<TARGET_FILE:subgraph_bridge_conv_op_intel_fpga>
+ADDLIB $<TARGET_FILE:model_parser>
+SAVE
+END

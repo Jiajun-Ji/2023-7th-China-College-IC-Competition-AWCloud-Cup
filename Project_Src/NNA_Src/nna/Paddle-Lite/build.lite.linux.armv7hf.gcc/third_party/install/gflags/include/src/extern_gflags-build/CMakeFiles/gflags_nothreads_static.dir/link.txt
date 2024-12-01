@@ -1,0 +1,2 @@
+/opt/software/gcc-linaro-5.4.1-2017.05-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-ar qc lib/libgflags_nothreads.a  CMakeFiles/gflags_nothreads_static.dir/src/gflags.cc.o CMakeFiles/gflags_nothreads_static.dir/src/gflags_reporting.cc.o CMakeFiles/gflags_nothreads_static.dir/src/gflags_completions.cc.o
+/opt/software/gcc-linaro-5.4.1-2017.05-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-ranlib lib/libgflags_nothreads.a

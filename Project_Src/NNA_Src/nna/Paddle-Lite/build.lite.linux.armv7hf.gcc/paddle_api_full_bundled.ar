@@ -1,0 +1,17 @@
+CREATE /opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/libpaddle_api_full_bundled.a
+ADDLIB /opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/lite/api/libpaddle_api_full.a
+ADDLIB /opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/lite/core/libframework_proto.a
+ADDLIB /opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/third_party/install/protobuf/lib/libprotobuf.a
+ADDLIB /opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/lite/core/libcore.a
+ADDLIB /opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/lite/backends/host/libtarget_wrapper_host.a
+ADDLIB /opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/lite/backends/intel_fpga/libintel_fpga_target_wrapper.a
+ADDLIB /opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/lite/operators/libops.a
+ADDLIB /opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/lite/utils/libutils.a
+ADDLIB /opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/lite/kernels/libkernels.a
+ADDLIB /opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/lite/backends/host/math/libmath_host.a
+ADDLIB /opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/lite/backends/arm/math/libmath_arm.a
+ADDLIB /opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/lite/kernels/intel_fpga/bridges/libsubgraph_bridge_graph_intel_fpga.a
+ADDLIB /opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/lite/kernels/intel_fpga/bridges/libsubgraph_bridge_conv_op_intel_fpga.a
+ADDLIB /opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/lite/model_parser/libmodel_parser.a
+SAVE
+END

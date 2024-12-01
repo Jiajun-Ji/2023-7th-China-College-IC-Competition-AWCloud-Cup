@@ -1,0 +1,3 @@
+/opt/nna/ssd_detection_demo/ssd_detection_src/build/CMakeFiles/rebuild_cache.dir
+/opt/nna/ssd_detection_demo/ssd_detection_src/build/CMakeFiles/edit_cache.dir
+/opt/nna/ssd_detection_demo/ssd_detection_src/build/CMakeFiles/ssd_detection.dir

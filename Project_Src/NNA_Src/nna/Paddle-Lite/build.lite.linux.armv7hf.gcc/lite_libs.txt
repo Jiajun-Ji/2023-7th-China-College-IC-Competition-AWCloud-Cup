@@ -1,0 +1,14 @@
+math_arm
+target_wrapper_host
+math_host
+intel_fpga_target_wrapper
+utils
+subgraph_bridge_graph_intel_fpga
+subgraph_bridge_conv_op_intel_fpga
+kernels
+core
+model_parser
+paddle_api_light
+paddle_api_full
+paddle_light_api_shared
+paddle_full_api_shared

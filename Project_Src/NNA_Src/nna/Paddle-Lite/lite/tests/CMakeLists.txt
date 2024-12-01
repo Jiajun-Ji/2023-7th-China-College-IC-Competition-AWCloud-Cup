@@ -1,0 +1,10 @@
+if(NOT WITH_TESTING)
+    return()
+endif()
+
+add_subdirectory(kernels)
+add_subdirectory(math)
+add_subdirectory(cv)
+add_subdirectory(cv/anakin)
+add_subdirectory(api)
+add_subdirectory(benchmark)
