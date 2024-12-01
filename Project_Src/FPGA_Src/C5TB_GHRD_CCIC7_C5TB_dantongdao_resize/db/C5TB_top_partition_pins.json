@@ -1,0 +1,116 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "LED[8]",
+					"strict" : false
+				},
+				{
+					"name" : "LED[9]",
+					"strict" : false
+				},
+				{
+					"name" : "LED[0]",
+					"strict" : false
+				},
+				{
+					"name" : "LED[1]",
+					"strict" : false
+				},
+				{
+					"name" : "LED[2]",
+					"strict" : false
+				},
+				{
+					"name" : "LED[3]",
+					"strict" : false
+				},
+				{
+					"name" : "LED[4]",
+					"strict" : false
+				},
+				{
+					"name" : "LED[5]",
+					"strict" : false
+				},
+				{
+					"name" : "LED[6]",
+					"strict" : false
+				},
+				{
+					"name" : "LED[7]",
+					"strict" : false
+				},
+				{
+					"name" : "SEG[0]",
+					"strict" : false
+				},
+				{
+					"name" : "SEG[1]",
+					"strict" : false
+				},
+				{
+					"name" : "SEG[2]",
+					"strict" : false
+				},
+				{
+					"name" : "SEG[3]",
+					"strict" : false
+				},
+				{
+					"name" : "SEG[4]",
+					"strict" : false
+				},
+				{
+					"name" : "SEG[5]",
+					"strict" : false
+				},
+				{
+					"name" : "SEG[6]",
+					"strict" : false
+				},
+				{
+					"name" : "SEG[7]",
+					"strict" : false
+				},
+				{
+					"name" : "FPGA_CLK1_50",
+					"strict" : false
+				}
+			]
+		},
+		{
+			"name" : "cnn_top:cnn_top_0",
+			"pins" : []
+		},
+		{
+			"name" : "dvp_ddr3_top_me:dvp_ddr3_top_0",
+			"pins" : [
+				{
+					"name" : "FPGA_CLK1_50",
+					"strict" : false
+				}
+			]
+		},
+		{
+			"name" : "receive_top:vhdmi_0",
+			"pins" : [
+				{
+					"name" : "FPGA_CLK1_50",
+					"strict" : false
+				}
+			]
+		},
+		{
+			"name" : "vcam_top:vcam_0",
+			"pins" : [
+				{
+					"name" : "FPGA_CLK1_50",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

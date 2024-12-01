@@ -1,0 +1,304 @@
+/*
+ * main.c
+ *
+ *  Created on: 2023
+ *      Author: LZ
+ */
+
+#include <sys/mman.h>
+#include <stdio.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <sys/mman.h>
+#include <linux/ioctl.h>
+#include <unistd.h>
+#include <string.h>
+
+#define soc_cv_av
+
+#include "hwlib.h"
+#include "socal/socal.h"
+#include "socal/hps.h"
+#include "hps_0.h"
+
+#define HW_REGS_BASE (ALT_STM_OFST)
+#define HW_REGS_SPAN (0x04000000)
+#define HW_REGS_MASK (HW_REGS_SPAN - 1)
+
+#define AMM_WR_MAGIC 'x'
+#define AMM_WR_CMD_DMA_BASE _IOR(AMM_WR_MAGIC, 0x1a, int)
+#define AMM_WR_CMD_PHY_BASE _IOR(AMM_WR_MAGIC,0x1b,int)
+
+#define IMG_WIDTH  400
+#define IMG_HEIGHT 320
+#define BURST_LEN 48
+
+#define IMG_BUF_SIZE IMG_WIDTH * IMG_HEIGHT * 3
+
+static volatile unsigned int *vcam_cfg_base = NULL;//寄存器
+static unsigned char *vcam_data_base = NULL;//数据
+static unsigned char *p_vcam_data_base = NULL;//物理地址
+static volatile unsigned int *vhdmi_cfg_base = NULL;
+static unsigned char *vhdmi_data_base = NULL;
+static unsigned char *p_vhdmi_data_base = NULL;
+static volatile unsigned int *dvp_ddr3_cfg_base = NULL;//寄存器
+static volatile unsigned int *ddr3_vga_cfg_base = NULL;//寄存器
+
+//#define ERRINDEXLOG
+
+int fpga_init(void)
+{
+	void *per_virtual_base;
+	int transfer_fd;
+	int mem_fd;
+
+	system("insmod vcam_drv.ko");
+	system("insmod vhdmi_drv.ko");
+
+	vcam_fd = open("/dev/vcam", (O_RDWR|O_SYNC));
+	if(vcam_fd == -1)
+	{
+		printf("open vcam is failed\n");
+		return(0);
+	}
+	vhdmi_fd = open("/dev/vhdmi", (O_RDWR|O_SYNC));
+	if(vhdmi_fd == -1)
+	{
+		printf("open vhdmi is failed\n");
+		return(0);
+	}
+	mem_fd = open("/dev/mem", (O_RDWR|O_SYNC));
+	if(mem_fd == -1)
+	{
+		printf("open mmu is failed\n");
+		return(0);
+	}
+
+	per_virtual_base = (unsigned int*)mmap(NULL, HW_REGS_SPAN, (PROT_READ | PROT_WRITE), MAP_SHARED, mem_fd, HW_REGS_BASE);
+
+	ioctl(vcam_fd, AMM_WR_CMD_DMA_BASE, &p_vcam_data_base);
+	printf("p_vcam_data_base = %x\n", p_vcam_data_base);
+	ioctl(vhdmi_fd, AMM_WR_CMD_DMA_BASE, &p_vhdmi_data_base);
+	printf("p_vhdmi_data_base = %x\n", p_vhdmi_data_base);
+
+	vcam_data_base = (unsigned char *)mmap(NULL, IMG_BUF_SIZE * 5, (PROT_READ | PROT_WRITE), MAP_SHARED, mem_fd, p_vcam_data_base);
+	//vcam_data_base = (unsigned char *)mmap(NULL, IMG_SIZE, (PROT_READ | PROT_WRITE), MAP_SHARED, vcam_fd, 0);
+	vhdmi_data_base = (unsigned char *)mmap(NULL, IMG_BUF_SIZE * 3, (PROT_READ | PROT_WRITE), MAP_SHARED, mem_fd, p_vhdmi_data_base);
+	memset(vcam_data_base, IMG_BUF_SIZE * 2, 0);
+	memset(vhdmi_data_base, IMG_BUF_SIZE * 3, 0);
+
+	vcam_cfg_base  = (unsigned int *)(per_virtual_base + ((unsigned long)(ALT_LWFPGASLVS_OFST + VCAM_0_BASE) & (unsigned long)(HW_REGS_MASK)));
+	vhdmi_cfg_base  = (unsigned int *)(per_virtual_base + ((unsigned long)(ALT_LWFPGASLVS_OFST + VHDMI_0_BASE) & (unsigned long)(HW_REGS_MASK)));
+	dvp_ddr3_cfg_base = (unsigned int *)(per_virtual_base + ((unsigned long)(ALT_LWFPGASLVS_OFST + DVP_DDR3_0_BASE) & (unsigned long)(HW_REGS_MASK)));
+	ddr3_vga_cfg_base = (unsigned int *)(per_virtual_base + ((unsigned long)(ALT_LWFPGASLVS_OFST + DDR3_VGA_0_BASE) & (unsigned long)(HW_REGS_MASK)));
+
+	//config vcam
+	*(vcam_cfg_base + 2) = p_vcam_data_base;
+	*(vcam_cfg_base + 1) = 0x00000000;
+
+	//config dvp_ddr3
+	*dvp_ddr3_cfg_base = p_vcam_data_base + IMG_BUF_SIZE * 2;
+	*(dvp_ddr3_cfg_base + 1) = IMG_BUF_SIZE;
+	*(dvp_ddr3_cfg_base + 2) = 0x00000000;
+
+	//config ddr3_vga
+	*ddr3_vga_cfg_base = p_vcam_data_base + IMG_BUF_SIZE * 3;
+	*(ddr3_vga_cfg_base + 1) = IMG_BUF_SIZE;
+	*(ddr3_vga_cfg_base + 2) = 0x00000000;
+
+	//config vhdmi
+	*(vhdmi_cfg_base + 2) = p_vhdmi_data_base;
+	*(vhdmi_cfg_base + 3) = p_vhdmi_data_base + IMG_WIDTH * IMG_HEIGHT * 3;
+	*(vhdmi_cfg_base + 5) = BURST_LEN;
+	*(vhdmi_cfg_base + 6) = IMG_WIDTH * IMG_HEIGHT * 3;
+	*(vhdmi_cfg_base + 4) = 0x00000000;
+
+	usleep(1000000);
+
+	return 1;
+}
+
+int main ()
+{
+	unsigned int pix;
+	unsigned char *p0 = NULL,*p1 = NULL;
+	unsigned char buf[IMG_BUF_SIZE];
+	int i, j;
+	int turn, err, err_index, err_pix;
+#ifdef ERRINDEXLOG
+	char* log_file = "err_index";
+	char str[1000];
+#endif
+
+	if(fpga_init() != 1)
+	{
+		printf("fpga init failed!\n");
+	}
+
+#ifdef ERRINDEXLOG
+	FILE * fd;
+	if(access(log_file, F_OK) == 0)
+		remove(log_file);
+	fd = fopen(log_file, "a+");
+	if(fd == NULL)
+	{
+		printf("open log file failed!\n");
+		return 0;
+	}
+#endif
+
+	//printf("reg_status: %x\n", *vcam_cfg_base);
+	//vcam开始工作
+	*(vcam_cfg_base + 1) = 0x00000001;
+	//dvp_ddr3开始工作
+	*(dvp_ddr3_cfg_base + 2) = 0x00000001;
+	//ddr3_vga开始工作
+	*(ddr3_vga_cfg_base + 2) = 0x00000001;
+	//vhdmi开始工作
+	*(vhdmi_cfg_base + 4) = 0x00000001;
+
+	turn = 0;
+
+	while(1)
+	{
+#ifdef ERRINDEXLOG
+		fputs("===========================================\n", fd);
+#endif
+		if(((*vcam_cfg_base) & 0x00000003) == 0x00000002)
+		{
+			for(i = 0; i < IMG_HEIGHT; i++)
+			{
+				for(j = 0; j < IMG_WIDTH; j++)
+				{
+					vcam_data_base[(i * IMG_WIDTH + j) * 3] = (i * IMG_WIDTH + j) >> 16;
+					vcam_data_base[(i * IMG_WIDTH + j) * 3 + 1] = (i * IMG_WIDTH + j) >> 8;
+					vcam_data_base[(i * IMG_WIDTH + j) * 3 + 2] = (i * IMG_WIDTH + j);
+				}
+			}
+			*vcam_cfg_base = *vcam_cfg_base | 0x00000001;
+		}
+		else if(((*vcam_cfg_base) & 0x00000003) == 0x00000001)
+		{
+			for(i = 0; i < IMG_HEIGHT; i++)
+			{
+				for(j = 0; j < IMG_WIDTH; j++)
+				{
+					(vcam_data_base + IMG_BUF_SIZE)[(i * IMG_WIDTH + j) * 3] = (i * IMG_WIDTH + j) >> 16;
+					(vcam_data_base + IMG_BUF_SIZE)[(i * IMG_WIDTH + j) * 3 + 1] = (i * IMG_WIDTH + j) >> 8;
+					(vcam_data_base + IMG_BUF_SIZE)[(i * IMG_WIDTH + j) * 3 + 2] = (i * IMG_WIDTH + j);
+				}
+			}
+			*vcam_cfg_base = *vcam_cfg_base | 0x00000002;
+		}
+
+		//获取一帧图像
+		*(dvp_ddr3_cfg_base + 3) = 0x00000001;
+		while(1)
+		{
+			if(*(dvp_ddr3_cfg_base + 3) == 0x00000000)
+				break;
+		}
+		memcpy(buf, vcam_data_base + (IMG_BUF_SIZE * 2), IMG_BUF_SIZE);
+
+		//输出一帧图像
+		if(((*(ddr3_vga_cfg_base + 3)) & 0x00000003) == 0x00000002)
+		{
+			printf("write buffer0\n");
+			memcpy(vcam_data_base + (IMG_BUF_SIZE * 3), vcam_data_base + (IMG_BUF_SIZE * 2), IMG_BUF_SIZE);
+			memcpy(buf, vcam_data_base + (IMG_BUF_SIZE * 2), IMG_BUF_SIZE);
+			memcpy(buf, vcam_data_base + (IMG_BUF_SIZE * 3), IMG_BUF_SIZE);
+			*(ddr3_vga_cfg_base + 3) = *(ddr3_vga_cfg_base + 3) | 0x00000001;
+		}
+		else if(((*(ddr3_vga_cfg_base + 3)) & 0x00000003) == 0x00000001)
+		{
+			printf("write buffer1\n");
+			memcpy(vcam_data_base + (IMG_BUF_SIZE * 4), vcam_data_base + (IMG_BUF_SIZE * 2), IMG_BUF_SIZE);
+			memcpy(buf, vcam_data_base + (IMG_BUF_SIZE * 2), IMG_BUF_SIZE);
+			memcpy(buf, vcam_data_base + (IMG_BUF_SIZE * 4), IMG_BUF_SIZE);
+			*(ddr3_vga_cfg_base + 3) = *(ddr3_vga_cfg_base + 3) | 0x00000002;
+		}
+
+		err = 0;
+		err_index = 0;
+		//vhdmi数据读出
+		*vhdmi_cfg_base = 0x00000001; //禁止切换
+		if(!(*(vhdmi_cfg_base + 1) & 0x00000001)) //buffer1可读
+		{
+			memcpy(buf, vhdmi_data_base, IMG_BUF_SIZE);
+			for(i = 0; i < IMG_HEIGHT; i++)
+			{
+				for(j = 0; j < IMG_WIDTH; j++)
+				{
+					pix = (int)(*(buf + (i * IMG_WIDTH + j) * 3)) << 16;
+					pix = pix + (((int)(*((buf + (i * IMG_WIDTH + j) * 3) + 1))) << 8);
+					pix = pix + ((int)(*((buf + (i * IMG_WIDTH + j) * 3) + 2)));
+					//if(pix != (((i * IMG_WIDTH + j) / 16) * 16 + 0x0f - ((i * IMG_WIDTH + j) % 16)))
+					if(pix != (i * IMG_WIDTH + j))
+					{
+						//pix = 0;
+						//printf("pix error!\n");
+						err++;
+#ifdef ERRINDEXLOG
+						sprintf(str, " |%8x:%8x| ", i * IMG_WIDTH + j + 1, pix);
+						fputs(str, fd);
+						if((err % 8) == 0)
+							fputs("\n", fd);
+#endif
+						if(err_index == 0)
+						{
+							err_index = i * IMG_WIDTH + j + 1;
+							err_pix = pix;
+						}
+					}
+				}
+			}
+		}
+		else //buffer2可读
+		{
+			memcpy(buf, vhdmi_data_base + IMG_BUF_SIZE, IMG_BUF_SIZE);
+			for(i = 0; i < IMG_HEIGHT; i++)
+			{
+				for(j = 0; j < IMG_WIDTH; j++)
+				{
+					pix = (int)(*(buf + (i * IMG_WIDTH + j) * 3)) << 16;
+					pix = pix + (((int)(*((buf + (i * IMG_WIDTH + j) * 3) + 1))) << 8);
+					pix = pix + ((int)(*((buf + (i * IMG_WIDTH + j) * 3) + 2)));
+					//if(pix != (((i * IMG_WIDTH + j) / 16) * 16 + 0x0f - ((i * IMG_WIDTH + j) % 16)))
+					if(pix != (i * IMG_WIDTH + j))
+					{
+						//pix = 0;
+						//printf("pix error!\n");
+						err++;
+#ifdef ERRINDEXLOG
+						sprintf(str, " |%8x:%8x| ", i * IMG_WIDTH + j + 1, pix);
+						fputs(str, fd);
+						if((err % 8) == 0)
+							fputs("\n", fd);
+#endif
+						if(err_index == 0)
+						{
+							err_index = i * IMG_WIDTH + j + 1;
+							err_pix = pix;
+						}
+					}
+				}
+			}
+		}
+		if(err != 0)
+		{
+			printf("%d: %d at %d, pix: %x\n", turn, err, err_index, err_pix);
+		}
+		turn++;
+		*vhdmi_cfg_base = 0x00000000; //开启切换
+
+		usleep(1000000);
+	}
+#ifdef ERRINDEXLOG
+	fclose(fd);
+#endif
+	return 0;
+}
+
+
+
+

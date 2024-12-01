@@ -1,0 +1,5 @@
+config_db_path=/home/bananasuper/intelFPGA/18.1/embedded/ds-5/sw/debugger/configdb\:
+config_db_path0_defaultid=com.arm.ds\:0
+config_db_path0_enabled=true
+eclipse.preferences.version=1
+enabled_config_db_path=/home/bananasuper/intelFPGA/18.1/embedded/ds-5/sw/debugger/configdb\:

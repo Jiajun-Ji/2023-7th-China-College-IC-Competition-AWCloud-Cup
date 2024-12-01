@@ -1,0 +1,186 @@
+/*
+ * main.c
+ *
+ *  Created on: 2023
+ *      Author: LZ
+ */
+
+#include <sys/mman.h>
+#include <stdio.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <sys/mman.h>
+#include <linux/ioctl.h>
+#include <unistd.h>
+#include <string.h>
+
+#define soc_cv_av
+
+#include "hwlib.h"
+#include "socal/socal.h"
+#include "socal/hps.h"
+#include "hps_0.h"
+
+#define HW_REGS_BASE (ALT_STM_OFST)
+#define HW_REGS_SPAN (0x04000000)
+#define HW_REGS_MASK (HW_REGS_SPAN - 1)
+
+#define AMM_WR_MAGIC 'x'
+#define AMM_WR_CMD_DMA_BASE _IOR(AMM_WR_MAGIC, 0x1a, int)
+
+
+#define IMG_WIDTH  400
+#define IMG_HEIGHT 320
+
+#define IMG_SIZE IMG_WIDTH*IMG_HEIGHT*3/4
+
+static volatile unsigned long *cfg_virtual_base = NULL;
+static volatile unsigned long *_dma_base = NULL;
+static volatile unsigned long *dma_base = NULL;
+
+int fpga_init(int *virtual_base)
+{
+	void *per_virtual_base;
+	//unsigned long dma_base;
+	int dma_fd;
+	int fd;
+
+	fd = open("/dev/mem",(O_RDWR|O_SYNC));
+	if(fd == -1)
+	{
+		printf("fd = %d,ERROR:mmu open is failed\n",fd);
+		return(0);
+	}
+
+	per_virtual_base = (unsigned int*)mmap(NULL,HW_REGS_SPAN,( PROT_READ | PROT_WRITE ),MAP_SHARED,fd,HW_REGS_BASE);
+	printf("%x\n",per_virtual_base);
+
+	dma_fd = open("/dev/vcam",O_RDWR);
+	if(dma_fd == -1)
+	{
+		printf("ERROR:vcam open is failed\n");
+		return (0);
+	}
+
+	ioctl(dma_fd,AMM_WR_CMD_DMA_BASE,&_dma_base);
+	printf("_dma_base = %x\n",_dma_base);
+
+	dma_base = (unsigned int*) mmap(NULL, HW_REGS_SPAN,
+				(PROT_READ | PROT_WRITE),
+				MAP_SHARED, fd, _dma_base);
+
+	//virtual camera config bus
+	cfg_virtual_base  = (per_virtual_base + ((unsigned long)(ALT_LWFPGASLVS_OFST + VCAM_0_BASE) & (unsigned long)(HW_REGS_MASK)));
+	*(cfg_virtual_base+2) = _dma_base;
+
+	*virtual_base = per_virtual_base;
+	return fd;
+
+}
+
+int main ()
+{
+	int virtual_base;
+	int i;
+	int fd;
+	int reg_status = 0;  //read the status register through config bus.
+
+	int *p0 = NULL,*p1 = NULL;
+
+
+	fd = fpga_init(&virtual_base);
+	printf("virtual_base = %x\n",virtual_base);
+
+	*(cfg_virtual_base+1) = 0x00000000;
+	usleep(1000);
+
+	p0 = (int *)(dma_base + 0);
+	p1 = (int *)(dma_base + IMG_SIZE);
+
+	*(cfg_virtual_base+1) = 0x00000001;
+
+	int buf0[IMG_SIZE],buf1[IMG_SIZE];
+
+	while(1)
+	{
+		reg_status = *cfg_virtual_base;
+
+		if((reg_status & 0x00000003) == 0x00000002)
+		{
+			printf("reg_status: %x\n",reg_status);
+
+			printf("write buffer0\n");
+			for(i=0;i<IMG_SIZE;i++)	//IMG_SIZE
+			{
+				//buf0[i] = i;
+
+				if(i<(IMG_SIZE/4))
+					buf0[i] = 0xffffffff;
+				else if(i>(IMG_SIZE/4) && i < (IMG_SIZE/2))
+					buf0[i] = 0x00ff00ff;
+				else if(i>(IMG_SIZE/2) && i < (IMG_SIZE*3/4))
+					buf0[i] = 0x00000000;
+				else
+					buf0[i] = 0x88888888;
+
+			}
+
+			memcpy(p0,buf0,IMG_SIZE*4);
+
+			printf("write data at buffer 0 done\n");
+			*(cfg_virtual_base+0) = reg_status | 0x00000001;
+			usleep(3000000);
+		}
+
+		else if((reg_status & 0x00000003) == 0x00000001)	//��buffer1
+		{
+			printf("reg_status: %x\n",reg_status);
+
+			printf("write buffer1\n");
+			for(i=0;i<IMG_SIZE;i++)
+			{
+				if(i<(IMG_SIZE/4))
+					buf1[i] = 0x88888888;
+				else if(i>(IMG_SIZE/4) && i < (IMG_SIZE/2))
+					buf1[i] = 0x00000000;
+				else if(i>(IMG_SIZE/2) && i < (IMG_SIZE*3/4))
+					buf1[i] = 0x00ff00ff;
+				else
+					buf1[i] = 0xffffffff;
+
+			}
+
+			memcpy(p1,buf1,IMG_SIZE*4);
+
+			printf("write data at buffer 1 done\n");
+			*(cfg_virtual_base) = reg_status | 0x00000002;
+			usleep(3000000);
+		}
+		/*
+		FILE* hlsInput = fopen("hlsInput.txt", "w+");
+		fprintf(hlsInput, "=HLS input=====================================================================\r\n\n");
+		for(i=0;i<IMG_SIZE;i++)
+		{
+			fprintf(hlsInput, "%d:%#x\r",i,dma_base[i]);
+			if(IMG_SIZE%10==0)
+			{
+				fprintf(hlsInput, "\n");
+			}
+		}
+		*/
+		//fclose(hlsInput);
+	}
+
+	if(munmap(virtual_base,HW_REGS_SPAN) == -1)
+	{
+		printf("ERROR:munmap is failed\n");
+		close(fd);
+	}
+	close(fd);
+	return 0;
+
+}
+
+
+
+

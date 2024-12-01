@@ -1,0 +1,200 @@
+/*
+ * main.c
+ *
+ *  Created on: 2023�??2�??3�??
+ *      Author: LZ
+ */
+
+
+//gcc鏍囧�?��存枃�??
+#include <sys/mman.h>
+#include <stdio.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <sys/mman.h>
+#include <linux/ioctl.h>
+#include <unistd.h>
+#include <string.h>
+
+//HPS鍘傚鎻�?��鐨勫簳灞傚畾涔�?ご鏂囦�?
+#define soc_cv_av //�??鍙戝钩鍙癈yclone V �??�?
+
+#include "hwlib.h"
+#include "socal/socal.h"
+#include "socal/hps.h"
+#include "hps_0.h"
+
+#define HW_REGS_BASE (ALT_STM_OFST)     //HPS澶栬鍦板潃娈靛�?鍦板�?
+#define HW_REGS_SPAN (0x04000000)		//HPS澶栬鍦板潃娈靛湴鍧?绌洪�? 64MB澶у皬
+#define HW_REGS_MASK (HW_REGS_SPAN - 1) //HPS澶栬鍦板潃娈靛湴鍧?鎺╃�?
+
+#define AMM_WR_MAGIC 'x'
+#define AMM_WR_CMD_DMA_BASE _IOR(AMM_WR_MAGIC, 0x1a, int)
+
+
+#define IMG_WIDTH  400		//鍥剧墖�?�藉�? 	RGB888
+#define IMG_HEIGHT 320		//鍥剧墖�?樺�?
+
+#define IMG_SIZE IMG_WIDTH*IMG_HEIGHT*3/4		//图像�?占内存大�? int �? IMG_SIZE
+
+static volatile unsigned long *cfg_virtual_base = NULL;
+static volatile unsigned long *_dma_base = NULL;
+static volatile unsigned long *dma_base = NULL;
+
+int fpga_init(int *virtual_base)
+{
+	void *per_virtual_base;
+	//unsigned long dma_base;
+	int dma_fd;
+	int fd;
+	//1.鎵撳紑mmu
+
+	//灏嗗湴鍧?绌洪棿鏄犲皠鍒扮敤鎴风┖�??
+
+	fd = open("/dev/mem",(O_RDWR|O_SYNC));
+	if(fd == -1)
+	{
+		printf("fd = %d,ERROR:mmu open is failed\n",fd);
+		return(0);
+	}
+
+	per_virtual_base = (unsigned int*)mmap(NULL,HW_REGS_SPAN,( PROT_READ | PROT_WRITE ),MAP_SHARED,fd,HW_REGS_BASE);
+	printf("%x\n",per_virtual_base);
+
+	dma_fd = open("/dev/vcam",O_RDWR);	// "/dev/amm_wr"	娌℃湁璁惧鏂囦欢锛岃繑�??-1
+	if(dma_fd == -1)
+	{
+		printf("ERROR:vcam open is failed\n");
+		return (0);
+	}
+
+	//鑾峰彇buffer鐨勫湴鍧?
+	ioctl(dma_fd,AMM_WR_CMD_DMA_BASE,&_dma_base);
+	printf("_dma_base = %x\n",_dma_base);
+
+
+	//鏄犲皠鎺ュ彛 瀵瑰簲澶�?��鎺ュ�?  锛堝緱鍒板璁剧湡�?ｇ殑鍦板潃锛?
+	dma_base = (unsigned int*) mmap(NULL, HW_REGS_SPAN,
+				(PROT_READ | PROT_WRITE),
+				MAP_SHARED, fd, _dma_base);
+
+	//virtual camera config bus
+	cfg_virtual_base  = (per_virtual_base + ((unsigned long)(ALT_LWFPGASLVS_OFST + VIRTUAL_CAMERA_BASE) & (unsigned long)(HW_REGS_MASK)));
+	*(cfg_virtual_base+2) = _dma_base;	//鍚慞L绔啓鍏DR3涓瑽uffer鍩哄湴鍧?�??
+
+	//鐀���?��婃斁
+	*virtual_base = per_virtual_base;
+	return fd;
+
+}
+
+int main ()
+{
+	int virtual_base;
+	int i;
+	int fd;
+	int reg_status = 0;  //read the status register through config bus.
+
+	int *p0 = NULL,*p1 = NULL;
+
+
+	fd = fpga_init(&virtual_base);
+	printf("virtual_base = %x\n",virtual_base);
+
+	*(cfg_virtual_base+1) = 0x00000000;	//浣胯兘PL�??
+	usleep(1000);
+
+	p0 = (int *)(dma_base + 0);
+	p1 = (int *)(dma_base + IMG_SIZE);
+
+	*(cfg_virtual_base+1) = 0x00000001;	//浣胯兘PL�??
+
+	int buf0[IMG_SIZE],buf1[IMG_SIZE];
+
+	while(1)
+	{
+		reg_status = *cfg_virtual_base;
+
+		if((reg_status & 0x00000003) == 0x00000002)		//写buffer0
+		{
+			printf("reg_status: %x\n",reg_status);
+
+			//鍐檅buffer1
+			printf("write buffer0\n");
+			for(i=0;i<IMG_SIZE;i++)	//IMG_SIZE
+			{
+				//buf0[i] = i;
+
+				if(i<(IMG_SIZE/4))
+					buf0[i] = 0xffffffff;
+				else if(i>(IMG_SIZE/4) && i < (IMG_SIZE/2))
+					buf0[i] = 0x00ff00ff;
+				else if(i>(IMG_SIZE/2) && i < (IMG_SIZE*3/4))
+					buf0[i] = 0x00000000;
+				else
+					buf0[i] = 0x88888888;
+
+			}
+
+			memcpy(p0,buf0,IMG_SIZE*4);	//copy数据到DDR3
+
+			printf("write data at buffer 0 done\n");
+			*(cfg_virtual_base+0) = reg_status | 0x00000001;
+			usleep(3000000);
+		}
+
+//		鍐檅uffer0
+		else if((reg_status & 0x00000003) == 0x00000001)	//写buffer1
+		{
+			printf("reg_status: %x\n",reg_status);
+
+			//鍐檅uffer0
+			printf("write buffer1\n");
+			for(i=0;i<IMG_SIZE;i++)
+			{
+				if(i<(IMG_SIZE/4))
+					buf1[i] = 0x88888888;
+				else if(i>(IMG_SIZE/4) && i < (IMG_SIZE/2))
+					buf1[i] = 0x00000000;
+				else if(i>(IMG_SIZE/2) && i < (IMG_SIZE*3/4))
+					buf1[i] = 0x00ff00ff;
+				else
+					buf1[i] = 0xffffffff;
+
+			}
+
+			memcpy(p1,buf1,IMG_SIZE*4);	//copy数据到DDR3
+
+			printf("write data at buffer 1 done\n");
+			*(cfg_virtual_base) = reg_status | 0x00000002;//鍐欏畬buffer0 璁剧疆鏍囧織�??
+			usleep(3000000);
+		}
+		/*
+		FILE* hlsInput = fopen("hlsInput.txt", "w+");
+		fprintf(hlsInput, "=HLS input=====================================================================\r\n\n");
+		for(i=0;i<IMG_SIZE;i++)
+		{
+			fprintf(hlsInput, "%d:%#x\r",i,dma_base[i]);
+			if(IMG_SIZE%10==0)
+			{
+				fprintf(hlsInput, "\n");
+			}
+		}
+		*/
+		//fclose(hlsInput);
+	}
+
+	if(munmap(virtual_base,HW_REGS_SPAN) == -1)
+	{
+		printf("ERROR:munmap is failed\n");
+		close(fd);
+	}
+	//鍏抽�?
+	close(fd);
+	return 0;
+
+}
+
+
+
+

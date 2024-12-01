@@ -1,0 +1,34 @@
+Core: hps_sdram_p0 - Instance: u0|hps_0|hps_io|border|hps_sdram_inst
+Path, Setup Margin, Hold Margin
+"Address Command (Slow 1100mV 85C Model)",0.583,0.56
+"Bus Turnaround Time (Slow 1100mV 85C Model)",3.282,--
+"Core (Slow 1100mV 85C Model)",1.577,0.174
+"Core Recovery/Removal (Slow 1100mV 85C Model)",3.036,0.574
+"DQS vs CK (Slow 1100mV 85C Model)",0.582,0.285
+"Postamble (Slow 1100mV 85C Model)",0.44,0.44
+"Read Capture (Slow 1100mV 85C Model)",0.192,0.144
+"Write (Slow 1100mV 85C Model)",0.221,0.221
+"Address Command (Slow 1100mV 0C Model)",0.566,0.556
+"Bus Turnaround Time (Slow 1100mV 0C Model)",3.311,--
+"Core (Slow 1100mV 0C Model)",1.565,0.2
+"Core Recovery/Removal (Slow 1100mV 0C Model)",3.128,0.569
+"DQS vs CK (Slow 1100mV 0C Model)",0.59,0.326
+"Postamble (Slow 1100mV 0C Model)",0.421,0.421
+"Read Capture (Slow 1100mV 0C Model)",0.203,0.156
+"Write (Slow 1100mV 0C Model)",0.232,0.232
+"Address Command (Fast 1100mV 85C Model)",0.622,0.66
+"Bus Turnaround Time (Fast 1100mV 85C Model)",3.469,--
+"Core (Fast 1100mV 85C Model)",2.11,0.084
+"Core Recovery/Removal (Fast 1100mV 85C Model)",3.727,0.497
+"DQS vs CK (Fast 1100mV 85C Model)",0.67,0.48
+"Postamble (Fast 1100mV 85C Model)",0.588,0.588
+"Read Capture (Fast 1100mV 85C Model)",0.371,0.324
+"Write (Fast 1100mV 85C Model)",0.311,0.311
+"Address Command (Fast 1100mV 0C Model)",0.595,0.676
+"Bus Turnaround Time (Fast 1100mV 0C Model)",3.482,--
+"Core (Fast 1100mV 0C Model)",2.11,0.077
+"Core Recovery/Removal (Fast 1100mV 0C Model)",3.825,0.473
+"DQS vs CK (Fast 1100mV 0C Model)",0.667,0.508
+"Postamble (Fast 1100mV 0C Model)",0.593,0.593
+"Read Capture (Fast 1100mV 0C Model)",0.371,0.324
+"Write (Fast 1100mV 0C Model)",0.325,0.325

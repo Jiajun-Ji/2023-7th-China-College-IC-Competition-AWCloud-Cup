@@ -1,0 +1,22 @@
+{
+	"system" : {
+		"platform" : "windows64",
+		"os_name" : "Windows 10",
+		"os_version" : "10.0"
+	},
+	"error" : {
+		"executable" : "quartus_map",
+		"comment" : "not_applicable",
+		"error_message" : "\nQuartus Prime requested that Windows modify job info, but Windows could not do so.\nPlease report the full text of this message to Intel so we can investigate its causes.\nIn the meantime, may wish to take the following steps to work around the problem:\n   * Disabled parallel compilation if it is enabled\n   * Ensure you have sufficient memory to run Quartus.\n   * Ensure all service packs and patches from Microsoft are installed\n\nTechnical details:\n   * API: result\n   * OS code: 6 (¾ä±úÎÞÐ§¡£)\n",
+		"source_file" : "/quartus/ccl/thr/thr_process.cpp",
+		"line" : "478",
+		"stack_trace" : "\t0x7ffe550424c8: ccl_thr + 0x24c8 (thr_os_error + 0xb8)\n\t0x7ffe55042f1d: ccl_thr + 0x2f1d (thr_windows_error + 0xad)\n\t0x7ffe55041cce: ccl_thr + 0x1cce (thr_process_create_and_save_job + 0x6fe)\n\t0x7ffe550415c5: ccl_thr + 0x15c5 (thr_process_create + 0x25)\n\t0x7ffe34965ca8: CCL_MSG + 0x35ca8 (?search_and_send_crash_report@MSG_CRASH_REPORT_MANAGER@@QEAAXXZ + 0x178)\n\t0x7ff7f8d93896: quartus_map + 0x13896 (?execute@QSYN_FRAMEWORK@@UEAA_NXZ + 0x286)\n\t0x7ffe2a231067: comp_qexe + 0x11067 (qexe_do_grunt + 0xa7)\n\t0x7ffe2a236063: comp_qexe + 0x16063 (qexe_run + 0x353)\n\t0x7ffe2a236e51: comp_qexe + 0x16e51 (?qexe_standard_main@@YAHPEAVQEXE_FRAMEWORK@@PEAPEBUQEXE_OPTION_DEFINITION@@HPEAPEBD@Z + 0xc1)\n\t0x7ff7f8d9b08b: quartus_map + 0x1b08b (?qsyn_main@@YAHHPEAPEBD@Z + 0x51b)\n\t0x7ffe34942e98: CCL_MSG + 0x12e98 (?msg_main_thread@@YAPEAXPEAX@Z + 0x18)\n\t0x7ffe3494467e: CCL_MSG + 0x1467e (?msg_thread_wrapper@@YAPEAXP6APEAXPEAX@Z0@Z + 0x6e)\n\t0x7ffe597a6660: ccl_mem + 0x16660 (?mem_thread_wrapper@@YAPEAXP6APEAXPEAX@Z0@Z + 0x70)\n\t0x7ffe34942761: CCL_MSG + 0x12761 (?msg_exe_main@@YAHHPEAPEBDP6AHH0@Z@Z + 0xa1)\n\t0x7ff7f8da9872: quartus_map + 0x29872 (__tmainCRTStartup + 0x10e)\n\t0x7ffebde726ac: KERNEL32 + 0x126ac (BaseThreadInitThunk + 0x1c)\n\t0x7ffebe94a9f7: ntdll + 0x5a9f7 (RtlUserThreadStart + 0x27)\n",
+		"subsystem" : "THR"
+	},
+	"quartus" : {
+		"quartus_bits" : "64",
+		"version" : "18.1.0",
+		"build" : "625",
+		"edition" : "Standard Edition"
+	}
+}

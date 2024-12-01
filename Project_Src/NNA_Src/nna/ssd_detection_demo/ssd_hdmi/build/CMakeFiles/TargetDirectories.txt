@@ -1,0 +1,3 @@
+/opt/nna/ssd_detection_demo/ssd_hdmi/build/CMakeFiles/rebuild_cache.dir
+/opt/nna/ssd_detection_demo/ssd_hdmi/build/CMakeFiles/edit_cache.dir
+/opt/nna/ssd_detection_demo/ssd_hdmi/build/CMakeFiles/ssd_hdmi.dir

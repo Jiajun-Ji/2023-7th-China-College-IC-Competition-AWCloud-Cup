@@ -1,0 +1,15 @@
+23:14:19 **** Incremental Build of configuration Debug for project HPSGPIOControl ****
+make all 
+Building file: ../maingp.c
+Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]
+arm-linux-gnueabihf-gcc -I"D:\intelFPGA\18.1\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"D:\intelFPGA\18.1\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -O0 -g -Wall -c -fmessage-length=0 -MMD -MP -MF"maingp.d" -MT"maingp.o" -o "maingp.o" "../maingp.c"
+Finished building: ../maingp.c
+ 
+Building target: HPSGPIOControl
+Invoking: GCC C Linker 4 [arm-linux-gnueabihf]
+arm-linux-gnueabihf-gcc  -o "HPSGPIOControl"  ./maingp.o   
+Finished building target: HPSGPIOControl
+ 
+
+23:14:26 Build Finished (took 7s.499ms)
+

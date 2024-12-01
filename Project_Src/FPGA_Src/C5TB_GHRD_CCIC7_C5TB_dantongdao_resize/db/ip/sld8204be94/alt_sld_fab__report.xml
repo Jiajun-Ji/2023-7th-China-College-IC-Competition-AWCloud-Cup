@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deploy
+ date="2023.08.16.21:06:37"
+ outputDirectory="E:/7th/zongjuesai/815/C5TB_GHRD_CCIC7_C5TB_dantongdao_resize/db/ip/sld8204be94/">
+ <perimeter>
+  <parameter
+     name="AUTO_DEVICE_FAMILY"
+     type="String"
+     defaultValue=""
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_DEVICE"
+     type="String"
+     defaultValue=""
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_DEVICE_SPEEDGRADE"
+     type="String"
+     defaultValue=""
+     onHdl="0"
+     affectsHdl="1" />
+  <interface name="nodes" kind="conduit" start="0">
+   <property name="associatedClock" value="" />
+   <property name="associatedReset" value="" />
+   <port name="nodes_send" direction="input" role="send" width="64" />
+   <port name="nodes_receive" direction="output" role="receive" width="64" />
+  </interface>
+  <interface name="hub" kind="conduit" start="0">
+   <property name="associatedClock" value="" />
+   <property name="associatedReset" value="" />
+   <port name="hub_tck" direction="input" role="tck" width="1" />
+   <port name="hub_tms" direction="input" role="tms" width="1" />
+   <port name="hub_tdi" direction="input" role="tdi" width="1" />
+   <port name="hub_tdo" direction="output" role="tdo" width="1" />
+  </interface>
+ </perimeter>
+ <entity
+   path=""
+   parameterizationKey="alt_sld_fab:1.0:AUTO_DEVICE=,AUTO_DEVICE_FAMILY=Cyclone V,AUTO_DEVICE_SPEEDGRADE=(alt_sld_fab:18.1:AGENTS=,AUTO_DEVICE=Unknown,AUTO_DEVICE_SPEEDGRADE=Unknown,CLOCKS={id {} } {id clock_alias_1} ,COMPOSED_SETTINGS={fabric ident dir * width 32 latency 0} {fabric sld dir host enable_jtag_io_selection 0 control hubctrl name sldhub host_priority 200 bridge_host 0 full_tap 1} ,DESIGN_HASH=4552d32562c88dcb4ade,DEVICE_FAMILY=Cyclone V,EP_INFOS={hpath {soc_system:u0|soc_system_sld_hub_controller_system_0:sld_hub_controller_system_0|soc_system_sld_hub_controller_system_0_link:link|altera_connection_identification_rom_wrapper:connection_id_rom|altera_connection_identification_rom:the_rom|altera_fabric_endpoint:ep} } {hpath {soc_system:u0|soc_system_sld_hub_controller_system_0:sld_hub_controller_system_0|soc_system_sld_hub_controller_system_0_hub_controller:hub_controller|altera_streaming_sld_hub_controller_core:core|altera_streaming_sld_hub_controller_sld_node:the_node|altera_sld_host_endpoint:jtag_access|altera_fabric_endpoint:ep} } ,MAX_WIDTH=32,MIRROR=0,NODE_COUNT=2,SETTINGS={fabric ident width 32 latency 0 psig 2916e275} {fabric sld dir host enable_jtag_io_selection 0 control {hubctrl} name {sldhub} host_priority 200 bridge_host 0 psig 10982edc} ,TOP_HUB=1(altera_super_splitter:18.1:MAX_WIDTH=32,RECEIVE_WIDTHS=32 1,SEND_WIDTHS=6 3)(altera_sld_splitter:18.1:ADD_INTERFACE_ASGN=0,EXAMPLE=,FRAGMENTS={{name ident type conduit dir start ports { {writedata writedata out 4 0} {address address out 2 4} {readdata readdata in 32 0} } assign {debug.endpointLink {fabric ident index 2} } } } {{name clock type clock dir start ports { {tck clk out 1 0} } } {name node type conduit dir start ports { {tms tms out 1 1} {tdi tdi out 1 2} {tdo tdo in 1 0} } clock clock assign {debug.controlledBy {link_1} } moduleassign {debug.virtualInterface.link_1 {debug.endpointLink {fabric sld index 1} } } } } )(altera_jtag_pins_bridge:18.1:)(altera_sld_jtag_hub:18.1:BROADCAST_FEATURE=0,COMPILATION_MODE=0,CONN_INDEX=0,COUNT=0,DEVICE_FAMILY=Cyclone V,ENABLE_SOFT_CORE_CONTROLLER=0,FORCE_IR_CAPTURE_FEATURE=1,FORCE_PRE_1_4_FEATURE=0,NEGEDGE_TDO_LATCH=1,NODE_INFO=,N_NODE_IR_BITS=3,N_SEL_BITS=0,SETTINGS=,TOP_HUB=1)(altera_sld_jtag_hub:18.1:BROADCAST_FEATURE=0,COMPILATION_MODE=0,CONN_INDEX=2,COUNT=0,DEVICE_FAMILY=Cyclone V,ENABLE_SOFT_CORE_CONTROLLER=1,FORCE_IR_CAPTURE_FEATURE=1,FORCE_PRE_1_4_FEATURE=0,NEGEDGE_TDO_LATCH=1,NODE_INFO=,N_NODE_IR_BITS=3,N_SEL_BITS=0,SETTINGS=,TOP_HUB=1)(altera_connection_identification_hub:18.1:COUNT=3,DESIGN_HASH=4552d32562c88dcb4ade,SETTINGS={width 4 latency 0} {width 32 latency 0} {width 4 latency 0} )(conduit:18.1:endPort=,endPortLSB=0,startPort=,startPortLSB=0,width=0)(clock:18.1:)(conduit:18.1:endPort=,endPortLSB=0,startPort=,startPortLSB=0,width=0)(clock:18.1:)(conduit:18.1:endPort=,endPortLSB=0,startPort=,startPortLSB=0,width=0)(conduit:18.1:endPort=,endPortLSB=0,startPort=,startPortLSB=0,width=0)(conduit:18.1:endPort=,endPortLSB=0,startPort=,startPortLSB=0,width=0)(conduit:18.1:endPort=,endPortLSB=0,startPort=,startPortLSB=0,width=0))"
+   instancePathKey="alt_sld_fab"
+   kind="alt_sld_fab"
+   version="1.0"
+   name="alt_sld_fab">
+  <parameter name="AUTO_DEVICE" value="" />
+  <parameter name="AUTO_DEVICE_FAMILY" value="Cyclone V" />
+  <parameter name="AUTO_DEVICE_SPEEDGRADE" value="" />
+  <generatedFiles>
+   <file
+       path="E:/7th/zongjuesai/815/C5TB_GHRD_CCIC7_C5TB_dantongdao_resize/db/ip/sld8204be94/alt_sld_fab.v"
+       type="VERILOG" />
+  </generatedFiles>
+  <childGeneratedFiles>
+   <file
+       path="E:/7th/zongjuesai/815/C5TB_GHRD_CCIC7_C5TB_dantongdao_resize/db/ip/sld8204be94/submodules/alt_sld_fab_alt_sld_fab.v"
+       type="VERILOG" />
+   <file
+       path="E:/7th/zongjuesai/815/C5TB_GHRD_CCIC7_C5TB_dantongdao_resize/db/ip/sld8204be94/submodules/alt_sld_fab_alt_sld_fab_presplit.sv"
+       type="SYSTEM_VERILOG"
+       attributes="TOP_LEVEL_FILE" />
+   <file
+       path="E:/7th/zongjuesai/815/C5TB_GHRD_CCIC7_C5TB_dantongdao_resize/db/ip/sld8204be94/submodules/alt_sld_fab_alt_sld_fab_splitter.sv"
+       type="SYSTEM_VERILOG"
+       attributes="TOP_LEVEL_FILE" />
+   <file
+       path="E:/7th/zongjuesai/815/C5TB_GHRD_CCIC7_C5TB_dantongdao_resize/db/ip/sld8204be94/submodules/alt_sld_fab_alt_sld_fab_sldfabric_0.vhd"
+       type="VHDL"
+       attributes="" />
+   <file
+       path="E:/7th/zongjuesai/815/C5TB_GHRD_CCIC7_C5TB_dantongdao_resize/db/ip/sld8204be94/submodules/alt_sld_fab_alt_sld_fab_sldfabric_1.vhd"
+       type="VHDL"
+       attributes="" />
+   <file
+       path="E:/7th/zongjuesai/815/C5TB_GHRD_CCIC7_C5TB_dantongdao_resize/db/ip/sld8204be94/submodules/alt_sld_fab_alt_sld_fab_ident.sv"
+       type="SYSTEM_VERILOG"
+       attributes="TOP_LEVEL_FILE" />
+  </childGeneratedFiles>
+  <sourceFiles>
+   <file
+       path="E:/7th/zongjuesai/815/C5TB_GHRD_CCIC7_C5TB_dantongdao_resize/db/ip/sld8204be94/alt_sld_fab_wrapper_hw.tcl" />
+  </sourceFiles>
+  <childSourceFiles>
+   <file
+       path="E:/intelfpga/18.1/ip/altera/sld/core/altera_instrumentation_fabric/alt_sld_fab_hw.tcl" />
+   <file
+       path="E:/intelFPGA/18.1/ip/altera/sld/core/altera_instrumentation_fabric/com.altera.superfabric.jar" />
+   <file
+       path="E:/intelFPGA/18.1/quartus/sopc_builder/model/lib/com.altera.utilities.jar" />
+   <file
+       path="E:/intelFPGA/18.1/quartus/sopc_builder/model/lib/hamcrest-all-1.3.jar" />
+   <file
+       path="E:/intelFPGA/18.1/quartus/sopc_builder/model/lib/commons-lang3-3.1.jar" />
+   <file
+       path="E:/intelFPGA/18.1/quartus/sopc_builder/model/lib/javasysmon.jar" />
+   <file
+       path="E:/intelfpga/18.1/ip/altera/sld/core/altera_super_splitter/altera_super_splitter_hw.tcl" />
+   <file
+       path="E:/intelfpga/18.1/ip/altera/sld/core/altera_super_splitter/altera_sld_splitter_hw.tcl" />
+   <file
+       path="E:/intelfpga/18.1/ip/altera/sld/jtag/altera_sld_jtag_hub/altera_sld_jtag_hub_hw.tcl" />
+   <file
+       path="E:/intelfpga/18.1/ip/altera/sld/jtag/altera_sld_jtag_hub/altera_sld_jtag_hub_hw.tcl" />
+   <file
+       path="E:/intelfpga/18.1/ip/altera/sld/core/altera_connection_identification_hub/altera_connection_identification_hub_hw.tcl" />
+  </childSourceFiles>
+  <messages>
+   <message level="Debug" culprit="alt_sld_fab">queue size: 0 starting:alt_sld_fab "alt_sld_fab"</message>
+   <message level="Progress" culprit="min"></message>
+   <message level="Progress" culprit="max"></message>
+   <message level="Progress" culprit="current"></message>
+   <message level="Progress" culprit="current"></message>
+   <message level="Debug">Transform: CustomInstructionTransform</message>
+   <message level="Debug">No custom instruction connections, skipping transform </message>
+   <message level="Debug" culprit="merlin_custom_instruction_transform"><![CDATA[After transform: <b>1</b> modules, <b>0</b> connections]]></message>
+   <message level="Debug">Transform: MMTransform</message>
+   <message level="Debug">Transform: InterruptMapperTransform</message>
+   <message level="Debug">Transform: InterruptSyncTransform</message>
+   <message level="Debug">Transform: InterruptFanoutTransform</message>
+   <message level="Debug">Transform: AvalonStreamingTransform</message>
+   <message level="Debug">Transform: ResetAdaptation</message>
+   <message level="Debug" culprit="alt_sld_fab"><![CDATA["<b>alt_sld_fab</b>" reuses <b>alt_sld_fab</b> "<b>submodules/alt_sld_fab_alt_sld_fab</b>"]]></message>
+   <message level="Debug" culprit="alt_sld_fab">queue size: 0 starting:alt_sld_fab "submodules/alt_sld_fab_alt_sld_fab"</message>
+   <message level="Progress" culprit="min"></message>
+   <message level="Progress" culprit="max"></message>
+   <message level="Progress" culprit="current"></message>
+   <message level="Progress" culprit="current"></message>
+   <message level="Debug">Transform: CustomInstructionTransform</message>
+   <message level="Debug">No custom instruction connections, skipping transform </message>
+   <message level="Debug" culprit="merlin_custom_instruction_transform"><![CDATA[After transform: <b>6</b> modules, <b>8</b> connections]]></message>
+   <message level="Debug">Transform: MMTransform</message>
+   <message level="Debug">Transform: InterruptMapperTransform</message>
+   <message level="Debug">Transform: InterruptSyncTransform</message>
+   <message level="Debug">Transform: InterruptFanoutTransform</message>
+   <message level="Debug">Transform: AvalonStreamingTransform</message>
+   <message level="Debug">Transform: ResetAdaptation</message>
+   <message level="Debug" culprit="alt_sld_fab"><![CDATA["<b>alt_sld_fab</b>" reuses <b>altera_super_splitter</b> "<b>submodules/alt_sld_fab_alt_sld_fab_presplit</b>"]]></message>
+   <message level="Debug" culprit="alt_sld_fab"><![CDATA["<b>alt_sld_fab</b>" reuses <b>altera_sld_splitter</b> "<b>submodules/alt_sld_fab_alt_sld_fab_splitter</b>"]]></message>
+   <message level="Debug" culprit="alt_sld_fab"><![CDATA["<b>alt_sld_fab</b>" reuses <b>altera_sld_jtag_hub</b> "<b>submodules/alt_sld_fab_alt_sld_fab_sldfabric_0</b>"]]></message>
+   <message level="Debug" culprit="alt_sld_fab"><![CDATA["<b>alt_sld_fab</b>" reuses <b>altera_sld_jtag_hub</b> "<b>submodules/alt_sld_fab_alt_sld_fab_sldfabric_1</b>"]]></message>
+   <message level="Debug" culprit="alt_sld_fab"><![CDATA["<b>alt_sld_fab</b>" reuses <b>altera_connection_identification_hub</b> "<b>submodules/alt_sld_fab_alt_sld_fab_ident</b>"]]></message>
+   <message level="Info" culprit="alt_sld_fab"><![CDATA["<b>alt_sld_fab</b>" instantiated <b>alt_sld_fab</b> "<b>alt_sld_fab</b>"]]></message>
+   <message level="Debug" culprit="alt_sld_fab">queue size: 4 starting:altera_super_splitter "submodules/alt_sld_fab_alt_sld_fab_presplit"</message>
+   <message level="Info" culprit="presplit"><![CDATA["<b>alt_sld_fab</b>" instantiated <b>altera_super_splitter</b> "<b>presplit</b>"]]></message>
+   <message level="Debug" culprit="alt_sld_fab">queue size: 3 starting:altera_sld_splitter "submodules/alt_sld_fab_alt_sld_fab_splitter"</message>
+   <message level="Info" culprit="splitter"><![CDATA["<b>alt_sld_fab</b>" instantiated <b>altera_sld_splitter</b> "<b>splitter</b>"]]></message>
+   <message level="Debug" culprit="alt_sld_fab">queue size: 2 starting:altera_sld_jtag_hub "submodules/alt_sld_fab_alt_sld_fab_sldfabric_0"</message>
+   <message level="Info" culprit="sldfabric_0"><![CDATA["<b>alt_sld_fab</b>" instantiated <b>altera_sld_jtag_hub</b> "<b>sldfabric_0</b>"]]></message>
+   <message level="Debug" culprit="alt_sld_fab">queue size: 1 starting:altera_sld_jtag_hub "submodules/alt_sld_fab_alt_sld_fab_sldfabric_1"</message>
+   <message level="Info" culprit="sldfabric_1"><![CDATA["<b>alt_sld_fab</b>" instantiated <b>altera_sld_jtag_hub</b> "<b>sldfabric_1</b>"]]></message>
+   <message level="Debug" culprit="alt_sld_fab">queue size: 0 starting:altera_connection_identification_hub "submodules/alt_sld_fab_alt_sld_fab_ident"</message>
+   <message level="Info" culprit="ident"><![CDATA["<b>alt_sld_fab</b>" instantiated <b>altera_connection_identification_hub</b> "<b>ident</b>"]]></message>
+  </messages>
+ </entity>
+ <entity
+   path="submodules/"
+   parameterizationKey="alt_sld_fab:18.1:AGENTS=,AUTO_DEVICE=Unknown,AUTO_DEVICE_SPEEDGRADE=Unknown,CLOCKS={id {} } {id clock_alias_1} ,COMPOSED_SETTINGS={fabric ident dir * width 32 latency 0} {fabric sld dir host enable_jtag_io_selection 0 control hubctrl name sldhub host_priority 200 bridge_host 0 full_tap 1} ,DESIGN_HASH=4552d32562c88dcb4ade,DEVICE_FAMILY=Cyclone V,EP_INFOS={hpath {soc_system:u0|soc_system_sld_hub_controller_system_0:sld_hub_controller_system_0|soc_system_sld_hub_controller_system_0_link:link|altera_connection_identification_rom_wrapper:connection_id_rom|altera_connection_identification_rom:the_rom|altera_fabric_endpoint:ep} } {hpath {soc_system:u0|soc_system_sld_hub_controller_system_0:sld_hub_controller_system_0|soc_system_sld_hub_controller_system_0_hub_controller:hub_controller|altera_streaming_sld_hub_controller_core:core|altera_streaming_sld_hub_controller_sld_node:the_node|altera_sld_host_endpoint:jtag_access|altera_fabric_endpoint:ep} } ,MAX_WIDTH=32,MIRROR=0,NODE_COUNT=2,SETTINGS={fabric ident width 32 latency 0 psig 2916e275} {fabric sld dir host enable_jtag_io_selection 0 control {hubctrl} name {sldhub} host_priority 200 bridge_host 0 psig 10982edc} ,TOP_HUB=1(altera_super_splitter:18.1:MAX_WIDTH=32,RECEIVE_WIDTHS=32 1,SEND_WIDTHS=6 3)(altera_sld_splitter:18.1:ADD_INTERFACE_ASGN=0,EXAMPLE=,FRAGMENTS={{name ident type conduit dir start ports { {writedata writedata out 4 0} {address address out 2 4} {readdata readdata in 32 0} } assign {debug.endpointLink {fabric ident index 2} } } } {{name clock type clock dir start ports { {tck clk out 1 0} } } {name node type conduit dir start ports { {tms tms out 1 1} {tdi tdi out 1 2} {tdo tdo in 1 0} } clock clock assign {debug.controlledBy {link_1} } moduleassign {debug.virtualInterface.link_1 {debug.endpointLink {fabric sld index 1} } } } } )(altera_jtag_pins_bridge:18.1:)(altera_sld_jtag_hub:18.1:BROADCAST_FEATURE=0,COMPILATION_MODE=0,CONN_INDEX=0,COUNT=0,DEVICE_FAMILY=Cyclone V,ENABLE_SOFT_CORE_CONTROLLER=0,FORCE_IR_CAPTURE_FEATURE=1,FORCE_PRE_1_4_FEATURE=0,NEGEDGE_TDO_LATCH=1,NODE_INFO=,N_NODE_IR_BITS=3,N_SEL_BITS=0,SETTINGS=,TOP_HUB=1)(altera_sld_jtag_hub:18.1:BROADCAST_FEATURE=0,COMPILATION_MODE=0,CONN_INDEX=2,COUNT=0,DEVICE_FAMILY=Cyclone V,ENABLE_SOFT_CORE_CONTROLLER=1,FORCE_IR_CAPTURE_FEATURE=1,FORCE_PRE_1_4_FEATURE=0,NEGEDGE_TDO_LATCH=1,NODE_INFO=,N_NODE_IR_BITS=3,N_SEL_BITS=0,SETTINGS=,TOP_HUB=1)(altera_connection_identification_hub:18.1:COUNT=3,DESIGN_HASH=4552d32562c88dcb4ade,SETTINGS={width 4 latency 0} {width 32 latency 0} {width 4 latency 0} )(conduit:18.1:endPort=,endPortLSB=0,startPort=,startPortLSB=0,width=0)(clock:18.1:)(conduit:18.1:endPort=,endPortLSB=0,startPort=,startPortLSB=0,width=0)(clock:18.1:)(conduit:18.1:endPort=,endPortLSB=0,startPort=,startPortLSB=0,width=0)(conduit:18.1:endPort=,endPortLSB=0,startPort=,startPortLSB=0,width=0)(conduit:18.1:endPort=,endPortLSB=0,startPort=,startPortLSB=0,width=0)(conduit:18.1:endPort=,endPortLSB=0,startPort=,startPortLSB=0,width=0)"
+   instancePathKey="alt_sld_fab:.:alt_sld_fab"
+   kind="alt_sld_fab"
+   version="18.1"
+   name="alt_sld_fab_alt_sld_fab">
+  <parameter name="MAX_WIDTH" value="32" />
+  <parameter name="TOP_HUB" value="1" />
+  <parameter name="DEVICE_FAMILY" value="Cyclone V" />
+  <parameter
+     name="SETTINGS"
+     value="{fabric ident width 32 latency 0 psig 2916e275} {fabric sld dir host enable_jtag_io_selection 0 control {hubctrl} name {sldhub} host_priority 200 bridge_host 0 psig 10982edc} " />
+  <parameter name="CLOCKS" value="{id {} } {id clock_alias_1} " />
+  <parameter name="DESIGN_HASH" value="4552d32562c88dcb4ade" />
+  <parameter name="AUTO_DEVICE_SPEEDGRADE" value="Unknown" />
+  <parameter name="MIRROR" value="0" />
+  <parameter
+     name="COMPOSED_SETTINGS"
+     value="{fabric ident dir * width 32 latency 0} {fabric sld dir host enable_jtag_io_selection 0 control hubctrl name sldhub host_priority 200 bridge_host 0 full_tap 1} " />
+  <parameter name="AUTO_DEVICE" value="Unknown" />
+  <parameter
+     name="EP_INFOS"
+     value="{hpath {soc_system:u0|soc_system_sld_hub_controller_system_0:sld_hub_controller_system_0|soc_system_sld_hub_controller_system_0_link:link|altera_connection_identification_rom_wrapper:connection_id_rom|altera_connection_identification_rom:the_rom|altera_fabric_endpoint:ep} } {hpath {soc_system:u0|soc_system_sld_hub_controller_system_0:sld_hub_controller_system_0|soc_system_sld_hub_controller_system_0_hub_controller:hub_controller|altera_streaming_sld_hub_controller_core:core|altera_streaming_sld_hub_controller_sld_node:the_node|altera_sld_host_endpoint:jtag_access|altera_fabric_endpoint:ep} } " />
+  <parameter name="AGENTS" value="" />
+  <parameter name="NODE_COUNT" value="2" />
+  <generatedFiles>
+   <file
+       path="E:/7th/zongjuesai/815/C5TB_GHRD_CCIC7_C5TB_dantongdao_resize/db/ip/sld8204be94/submodules/alt_sld_fab_alt_sld_fab.v"
+       type="VERILOG" />
+  </generatedFiles>
+  <childGeneratedFiles>
+   <file
+       path="E:/7th/zongjuesai/815/C5TB_GHRD_CCIC7_C5TB_dantongdao_resize/db/ip/sld8204be94/submodules/alt_sld_fab_alt_sld_fab_presplit.sv"
+       type="SYSTEM_VERILOG"
+       attributes="TOP_LEVEL_FILE" />
+   <file
+       path="E:/7th/zongjuesai/815/C5TB_GHRD_CCIC7_C5TB_dantongdao_resize/db/ip/sld8204be94/submodules/alt_sld_fab_alt_sld_fab_splitter.sv"
+       type="SYSTEM_VERILOG"
+       attributes="TOP_LEVEL_FILE" />
+   <file
+       path="E:/7th/zongjuesai/815/C5TB_GHRD_CCIC7_C5TB_dantongdao_resize/db/ip/sld8204be94/submodules/alt_sld_fab_alt_sld_fab_sldfabric_0.vhd"
+       type="VHDL"
+       attributes="" />
+   <file
+       path="E:/7th/zongjuesai/815/C5TB_GHRD_CCIC7_C5TB_dantongdao_resize/db/ip/sld8204be94/submodules/alt_sld_fab_alt_sld_fab_sldfabric_1.vhd"
+       type="VHDL"
+       attributes="" />
+   <file
+       path="E:/7th/zongjuesai/815/C5TB_GHRD_CCIC7_C5TB_dantongdao_resize/db/ip/sld8204be94/submodules/alt_sld_fab_alt_sld_fab_ident.sv"
+       type="SYSTEM_VERILOG"
+       attributes="TOP_LEVEL_FILE" />
+  </childGeneratedFiles>
+  <sourceFiles>
+   <file
+       path="E:/intelfpga/18.1/ip/altera/sld/core/altera_instrumentation_fabric/alt_sld_fab_hw.tcl" />
+   <file
+       path="E:/intelFPGA/18.1/ip/altera/sld/core/altera_instrumentation_fabric/com.altera.superfabric.jar" />
+   <file
+       path="E:/intelFPGA/18.1/quartus/sopc_builder/model/lib/com.altera.utilities.jar" />
+   <file
+       path="E:/intelFPGA/18.1/quartus/sopc_builder/model/lib/hamcrest-all-1.3.jar" />
+   <file
+       path="E:/intelFPGA/18.1/quartus/sopc_builder/model/lib/commons-lang3-3.1.jar" />
+   <file
+       path="E:/intelFPGA/18.1/quartus/sopc_builder/model/lib/javasysmon.jar" />
+  </sourceFiles>
+  <childSourceFiles>
+   <file
+       path="E:/intelfpga/18.1/ip/altera/sld/core/altera_super_splitter/altera_super_splitter_hw.tcl" />
+   <file
+       path="E:/intelfpga/18.1/ip/altera/sld/core/altera_super_splitter/altera_sld_splitter_hw.tcl" />
+   <file
+       path="E:/intelfpga/18.1/ip/altera/sld/jtag/altera_sld_jtag_hub/altera_sld_jtag_hub_hw.tcl" />
+   <file
+       path="E:/intelfpga/18.1/ip/altera/sld/jtag/altera_sld_jtag_hub/altera_sld_jtag_hub_hw.tcl" />
+   <file
+       path="E:/intelfpga/18.1/ip/altera/sld/core/altera_connection_identification_hub/altera_connection_identification_hub_hw.tcl" />
+  </childSourceFiles>
+  <instantiator instantiator="alt_sld_fab" as="alt_sld_fab" />
+  <messages>
+   <message level="Debug" culprit="alt_sld_fab">queue size: 0 starting:alt_sld_fab "submodules/alt_sld_fab_alt_sld_fab"</message>
+   <message level="Progress" culprit="min"></message>
+   <message level="Progress" culprit="max"></message>
+   <message level="Progress" culprit="current"></message>
+   <message level="Progress" culprit="current"></message>
+   <message level="Debug">Transform: CustomInstructionTransform</message>
+   <message level="Debug">No custom instruction connections, skipping transform </message>
+   <message level="Debug" culprit="merlin_custom_instruction_transform"><![CDATA[After transform: <b>6</b> modules, <b>8</b> connections]]></message>
+   <message level="Debug">Transform: MMTransform</message>
+   <message level="Debug">Transform: InterruptMapperTransform</message>
+   <message level="Debug">Transform: InterruptSyncTransform</message>
+   <message level="Debug">Transform: InterruptFanoutTransform</message>
+   <message level="Debug">Transform: AvalonStreamingTransform</message>
+   <message level="Debug">Transform: ResetAdaptation</message>
+   <message level="Debug" culprit="alt_sld_fab"><![CDATA["<b>alt_sld_fab</b>" reuses <b>altera_super_splitter</b> "<b>submodules/alt_sld_fab_alt_sld_fab_presplit</b>"]]></message>
+   <message level="Debug" culprit="alt_sld_fab"><![CDATA["<b>alt_sld_fab</b>" reuses <b>altera_sld_splitter</b> "<b>submodules/alt_sld_fab_alt_sld_fab_splitter</b>"]]></message>
+   <message level="Debug" culprit="alt_sld_fab"><![CDATA["<b>alt_sld_fab</b>" reuses <b>altera_sld_jtag_hub</b> "<b>submodules/alt_sld_fab_alt_sld_fab_sldfabric_0</b>"]]></message>
+   <message level="Debug" culprit="alt_sld_fab"><![CDATA["<b>alt_sld_fab</b>" reuses <b>altera_sld_jtag_hub</b> "<b>submodules/alt_sld_fab_alt_sld_fab_sldfabric_1</b>"]]></message>
+   <message level="Debug" culprit="alt_sld_fab"><![CDATA["<b>alt_sld_fab</b>" reuses <b>altera_connection_identification_hub</b> "<b>submodules/alt_sld_fab_alt_sld_fab_ident</b>"]]></message>
+   <message level="Info" culprit="alt_sld_fab"><![CDATA["<b>alt_sld_fab</b>" instantiated <b>alt_sld_fab</b> "<b>alt_sld_fab</b>"]]></message>
+   <message level="Debug" culprit="alt_sld_fab">queue size: 4 starting:altera_super_splitter "submodules/alt_sld_fab_alt_sld_fab_presplit"</message>
+   <message level="Info" culprit="presplit"><![CDATA["<b>alt_sld_fab</b>" instantiated <b>altera_super_splitter</b> "<b>presplit</b>"]]></message>
+   <message level="Debug" culprit="alt_sld_fab">queue size: 3 starting:altera_sld_splitter "submodules/alt_sld_fab_alt_sld_fab_splitter"</message>
+   <message level="Info" culprit="splitter"><![CDATA["<b>alt_sld_fab</b>" instantiated <b>altera_sld_splitter</b> "<b>splitter</b>"]]></message>
+   <message level="Debug" culprit="alt_sld_fab">queue size: 2 starting:altera_sld_jtag_hub "submodules/alt_sld_fab_alt_sld_fab_sldfabric_0"</message>
+   <message level="Info" culprit="sldfabric_0"><![CDATA["<b>alt_sld_fab</b>" instantiated <b>altera_sld_jtag_hub</b> "<b>sldfabric_0</b>"]]></message>
+   <message level="Debug" culprit="alt_sld_fab">queue size: 1 starting:altera_sld_jtag_hub "submodules/alt_sld_fab_alt_sld_fab_sldfabric_1"</message>
+   <message level="Info" culprit="sldfabric_1"><![CDATA["<b>alt_sld_fab</b>" instantiated <b>altera_sld_jtag_hub</b> "<b>sldfabric_1</b>"]]></message>
+   <message level="Debug" culprit="alt_sld_fab">queue size: 0 starting:altera_connection_identification_hub "submodules/alt_sld_fab_alt_sld_fab_ident"</message>
+   <message level="Info" culprit="ident"><![CDATA["<b>alt_sld_fab</b>" instantiated <b>altera_connection_identification_hub</b> "<b>ident</b>"]]></message>
+  </messages>
+ </entity>
+ <entity
+   path="submodules/"
+   parameterizationKey="altera_super_splitter:18.1:MAX_WIDTH=32,RECEIVE_WIDTHS=32 1,SEND_WIDTHS=6 3"
+   instancePathKey="alt_sld_fab:.:alt_sld_fab:.:presplit"
+   kind="altera_super_splitter"
+   version="18.1"
+   name="alt_sld_fab_alt_sld_fab_presplit">
+  <parameter name="SEND_WIDTHS" value="6 3" />
+  <parameter name="MAX_WIDTH" value="32" />
+  <parameter name="RECEIVE_WIDTHS" value="32 1" />
+  <generatedFiles>
+   <file
+       path="E:/7th/zongjuesai/815/C5TB_GHRD_CCIC7_C5TB_dantongdao_resize/db/ip/sld8204be94/submodules/alt_sld_fab_alt_sld_fab_presplit.sv"
+       type="SYSTEM_VERILOG"
+       attributes="TOP_LEVEL_FILE" />
+  </generatedFiles>
+  <childGeneratedFiles/>
+  <sourceFiles>
+   <file
+       path="E:/intelfpga/18.1/ip/altera/sld/core/altera_super_splitter/altera_super_splitter_hw.tcl" />
+  </sourceFiles>
+  <childSourceFiles/>
+  <instantiator instantiator="alt_sld_fab_alt_sld_fab" as="presplit" />
+  <messages>
+   <message level="Debug" culprit="alt_sld_fab">queue size: 4 starting:altera_super_splitter "submodules/alt_sld_fab_alt_sld_fab_presplit"</message>
+   <message level="Info" culprit="presplit"><![CDATA["<b>alt_sld_fab</b>" instantiated <b>altera_super_splitter</b> "<b>presplit</b>"]]></message>
+  </messages>
+ </entity>
+ <entity
+   path="submodules/"
+   parameterizationKey="altera_sld_splitter:18.1:ADD_INTERFACE_ASGN=0,EXAMPLE=,FRAGMENTS={{name ident type conduit dir start ports { {writedata writedata out 4 0} {address address out 2 4} {readdata readdata in 32 0} } assign {debug.endpointLink {fabric ident index 2} } } } {{name clock type clock dir start ports { {tck clk out 1 0} } } {name node type conduit dir start ports { {tms tms out 1 1} {tdi tdi out 1 2} {tdo tdo in 1 0} } clock clock assign {debug.controlledBy {link_1} } moduleassign {debug.virtualInterface.link_1 {debug.endpointLink {fabric sld index 1} } } } } "
+   instancePathKey="alt_sld_fab:.:alt_sld_fab:.:splitter"
+   kind="altera_sld_splitter"
+   version="18.1"
+   name="alt_sld_fab_alt_sld_fab_splitter">
+  <parameter
+     name="FRAGMENTS"
+     value="{{name ident type conduit dir start ports { {writedata writedata out 4 0} {address address out 2 4} {readdata readdata in 32 0} } assign {debug.endpointLink {fabric ident index 2} } } } {{name clock type clock dir start ports { {tck clk out 1 0} } } {name node type conduit dir start ports { {tms tms out 1 1} {tdi tdi out 1 2} {tdo tdo in 1 0} } clock clock assign {debug.controlledBy {link_1} } moduleassign {debug.virtualInterface.link_1 {debug.endpointLink {fabric sld index 1} } } } } " />
+  <parameter name="EXAMPLE" value="" />
+  <parameter name="ADD_INTERFACE_ASGN" value="0" />
+  <generatedFiles>
+   <file
+       path="E:/7th/zongjuesai/815/C5TB_GHRD_CCIC7_C5TB_dantongdao_resize/db/ip/sld8204be94/submodules/alt_sld_fab_alt_sld_fab_splitter.sv"
+       type="SYSTEM_VERILOG"
+       attributes="TOP_LEVEL_FILE" />
+  </generatedFiles>
+  <childGeneratedFiles/>
+  <sourceFiles>
+   <file
+       path="E:/intelfpga/18.1/ip/altera/sld/core/altera_super_splitter/altera_sld_splitter_hw.tcl" />
+  </sourceFiles>
+  <childSourceFiles/>
+  <instantiator instantiator="alt_sld_fab_alt_sld_fab" as="splitter" />
+  <messages>
+   <message level="Debug" culprit="alt_sld_fab">queue size: 3 starting:altera_sld_splitter "submodules/alt_sld_fab_alt_sld_fab_splitter"</message>
+   <message level="Info" culprit="splitter"><![CDATA["<b>alt_sld_fab</b>" instantiated <b>altera_sld_splitter</b> "<b>splitter</b>"]]></message>
+  </messages>
+ </entity>
+ <entity
+   path="submodules/"
+   parameterizationKey="altera_sld_jtag_hub:18.1:BROADCAST_FEATURE=0,COMPILATION_MODE=0,CONN_INDEX=0,COUNT=0,DEVICE_FAMILY=Cyclone V,ENABLE_SOFT_CORE_CONTROLLER=0,FORCE_IR_CAPTURE_FEATURE=1,FORCE_PRE_1_4_FEATURE=0,NEGEDGE_TDO_LATCH=1,NODE_INFO=,N_NODE_IR_BITS=3,N_SEL_BITS=0,SETTINGS=,TOP_HUB=1"
+   instancePathKey="alt_sld_fab:.:alt_sld_fab:.:sldfabric_0"
+   kind="altera_sld_jtag_hub"
+   version="18.1"
+   name="alt_sld_fab_alt_sld_fab_sldfabric_0">
+  <parameter name="CONN_INDEX" value="0" />
+  <parameter name="N_SEL_BITS" value="0" />
+  <parameter name="TOP_HUB" value="1" />
+  <parameter name="DEVICE_FAMILY" value="Cyclone V" />
+  <parameter name="N_NODE_IR_BITS" value="3" />
+  <parameter name="SETTINGS" value="" />
+  <parameter name="FORCE_IR_CAPTURE_FEATURE" value="1" />
+  <parameter name="BROADCAST_FEATURE" value="0" />
+  <parameter name="NODE_INFO" value="" />
+  <parameter name="COMPILATION_MODE" value="0" />
+  <parameter name="ENABLE_SOFT_CORE_CONTROLLER" value="0" />
+  <parameter name="NEGEDGE_TDO_LATCH" value="1" />
+  <parameter name="FORCE_PRE_1_4_FEATURE" value="0" />
+  <parameter name="COUNT" value="0" />
+  <generatedFiles>
+   <file
+       path="E:/7th/zongjuesai/815/C5TB_GHRD_CCIC7_C5TB_dantongdao_resize/db/ip/sld8204be94/submodules/alt_sld_fab_alt_sld_fab_sldfabric_0.vhd"
+       type="VHDL"
+       attributes="" />
+  </generatedFiles>
+  <childGeneratedFiles/>
+  <sourceFiles>
+   <file
+       path="E:/intelfpga/18.1/ip/altera/sld/jtag/altera_sld_jtag_hub/altera_sld_jtag_hub_hw.tcl" />
+  </sourceFiles>
+  <childSourceFiles/>
+  <instantiator instantiator="alt_sld_fab_alt_sld_fab" as="sldfabric_0" />
+  <messages>
+   <message level="Debug" culprit="alt_sld_fab">queue size: 2 starting:altera_sld_jtag_hub "submodules/alt_sld_fab_alt_sld_fab_sldfabric_0"</message>
+   <message level="Info" culprit="sldfabric_0"><![CDATA["<b>alt_sld_fab</b>" instantiated <b>altera_sld_jtag_hub</b> "<b>sldfabric_0</b>"]]></message>
+  </messages>
+ </entity>
+ <entity
+   path="submodules/"
+   parameterizationKey="altera_sld_jtag_hub:18.1:BROADCAST_FEATURE=0,COMPILATION_MODE=0,CONN_INDEX=2,COUNT=0,DEVICE_FAMILY=Cyclone V,ENABLE_SOFT_CORE_CONTROLLER=1,FORCE_IR_CAPTURE_FEATURE=1,FORCE_PRE_1_4_FEATURE=0,NEGEDGE_TDO_LATCH=1,NODE_INFO=,N_NODE_IR_BITS=3,N_SEL_BITS=0,SETTINGS=,TOP_HUB=1"
+   instancePathKey="alt_sld_fab:.:alt_sld_fab:.:sldfabric_1"
+   kind="altera_sld_jtag_hub"
+   version="18.1"
+   name="alt_sld_fab_alt_sld_fab_sldfabric_1">
+  <parameter name="CONN_INDEX" value="2" />
+  <parameter name="N_SEL_BITS" value="0" />
+  <parameter name="TOP_HUB" value="1" />
+  <parameter name="DEVICE_FAMILY" value="Cyclone V" />
+  <parameter name="N_NODE_IR_BITS" value="3" />
+  <parameter name="SETTINGS" value="" />
+  <parameter name="FORCE_IR_CAPTURE_FEATURE" value="1" />
+  <parameter name="BROADCAST_FEATURE" value="0" />
+  <parameter name="NODE_INFO" value="" />
+  <parameter name="COMPILATION_MODE" value="0" />
+  <parameter name="ENABLE_SOFT_CORE_CONTROLLER" value="1" />
+  <parameter name="NEGEDGE_TDO_LATCH" value="1" />
+  <parameter name="FORCE_PRE_1_4_FEATURE" value="0" />
+  <parameter name="COUNT" value="0" />
+  <generatedFiles>
+   <file
+       path="E:/7th/zongjuesai/815/C5TB_GHRD_CCIC7_C5TB_dantongdao_resize/db/ip/sld8204be94/submodules/alt_sld_fab_alt_sld_fab_sldfabric_1.vhd"
+       type="VHDL"
+       attributes="" />
+  </generatedFiles>
+  <childGeneratedFiles/>
+  <sourceFiles>
+   <file
+       path="E:/intelfpga/18.1/ip/altera/sld/jtag/altera_sld_jtag_hub/altera_sld_jtag_hub_hw.tcl" />
+  </sourceFiles>
+  <childSourceFiles/>
+  <instantiator instantiator="alt_sld_fab_alt_sld_fab" as="sldfabric_1" />
+  <messages>
+   <message level="Debug" culprit="alt_sld_fab">queue size: 1 starting:altera_sld_jtag_hub "submodules/alt_sld_fab_alt_sld_fab_sldfabric_1"</message>
+   <message level="Info" culprit="sldfabric_1"><![CDATA["<b>alt_sld_fab</b>" instantiated <b>altera_sld_jtag_hub</b> "<b>sldfabric_1</b>"]]></message>
+  </messages>
+ </entity>
+ <entity
+   path="submodules/"
+   parameterizationKey="altera_connection_identification_hub:18.1:COUNT=3,DESIGN_HASH=4552d32562c88dcb4ade,SETTINGS={width 4 latency 0} {width 32 latency 0} {width 4 latency 0} "
+   instancePathKey="alt_sld_fab:.:alt_sld_fab:.:ident"
+   kind="altera_connection_identification_hub"
+   version="18.1"
+   name="alt_sld_fab_alt_sld_fab_ident">
+  <parameter name="COUNT" value="3" />
+  <parameter
+     name="SETTINGS"
+     value="{width 4 latency 0} {width 32 latency 0} {width 4 latency 0} " />
+  <parameter name="DESIGN_HASH" value="4552d32562c88dcb4ade" />
+  <generatedFiles>
+   <file
+       path="E:/7th/zongjuesai/815/C5TB_GHRD_CCIC7_C5TB_dantongdao_resize/db/ip/sld8204be94/submodules/alt_sld_fab_alt_sld_fab_ident.sv"
+       type="SYSTEM_VERILOG"
+       attributes="TOP_LEVEL_FILE" />
+  </generatedFiles>
+  <childGeneratedFiles/>
+  <sourceFiles>
+   <file
+       path="E:/intelfpga/18.1/ip/altera/sld/core/altera_connection_identification_hub/altera_connection_identification_hub_hw.tcl" />
+  </sourceFiles>
+  <childSourceFiles/>
+  <instantiator instantiator="alt_sld_fab_alt_sld_fab" as="ident" />
+  <messages>
+   <message level="Debug" culprit="alt_sld_fab">queue size: 0 starting:altera_connection_identification_hub "submodules/alt_sld_fab_alt_sld_fab_ident"</message>
+   <message level="Info" culprit="ident"><![CDATA["<b>alt_sld_fab</b>" instantiated <b>altera_connection_identification_hub</b> "<b>ident</b>"]]></message>
+  </messages>
+ </entity>
+</deploy>
