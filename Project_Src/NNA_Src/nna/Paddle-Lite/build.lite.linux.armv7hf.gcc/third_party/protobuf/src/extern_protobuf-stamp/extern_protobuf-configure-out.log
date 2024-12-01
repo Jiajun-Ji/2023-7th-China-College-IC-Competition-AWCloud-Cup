@@ -1,0 +1,23 @@
+loading initial cache file /opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/third_party/protobuf/tmp/extern_protobuf-cache-Release.cmake
+-- The C compiler identification is GNU 5.4.1
+-- The CXX compiler identification is GNU 5.4.1
+-- Check for working C compiler: /opt/software/gcc-linaro-5.4.1-2017.05-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc
+-- Check for working C compiler: /opt/software/gcc-linaro-5.4.1-2017.05-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /opt/software/gcc-linaro-5.4.1-2017.05-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++
+-- Check for working CXX compiler: /opt/software/gcc-linaro-5.4.1-2017.05-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Looking for pthread_create
+-- Looking for pthread_create - found
+-- Found Threads: TRUE  
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/third_party/protobuf/src/extern_protobuf-build

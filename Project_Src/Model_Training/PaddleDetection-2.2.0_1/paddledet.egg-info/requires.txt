@@ -1,0 +1,20 @@
+tqdm
+opencv-python
+PyYAML
+shapely
+scipy
+terminaltables
+Cython
+pycocotools
+setuptools>=42.0.0
+lap
+sklearn
+motmetrics
+openpyxl
+cython_bbox
+
+[:python_version <= "3.7"]
+visualdl>=2.1.0
+
+[:python_version >= "3.4"]
+typeguard

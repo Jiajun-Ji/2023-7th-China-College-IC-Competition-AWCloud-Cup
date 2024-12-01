@@ -1,0 +1,25 @@
+Quartus Prime Archive log --	/home/bananasuper/Data/C5TB_GHRD_CCIC7_C5TB_test/vcam.qarlog
+
+Archive:	/home/bananasuper/Data/C5TB_GHRD_CCIC7_C5TB_test/vcam.qar
+Date:		Wed Mar 22 18:51:52 2023
+Quartus Prime		18.1.0 Build 625 09/12/2018 SJ Standard Edition
+
+	=========== Files Selected: ===========
+/home/bananasuper/Data/C5TB_GHRD_CCIC7_C5TB_test/db/C5TB_top_tmp_qic_export/C5TB_top.map.atm
+/home/bananasuper/Data/C5TB_GHRD_CCIC7_C5TB_test/db/C5TB_top_tmp_qic_export/C5TB_top.map.dpi
+/home/bananasuper/Data/C5TB_GHRD_CCIC7_C5TB_test/db/C5TB_top_tmp_qic_export/C5TB_top.map.hdbx
+/home/bananasuper/Data/C5TB_GHRD_CCIC7_C5TB_test/db/C5TB_top_tmp_qic_export/C5TB_top.map.logdb
+/home/bananasuper/Data/C5TB_GHRD_CCIC7_C5TB_test/db/C5TB_top_tmp_qic_export/C5TB_top.map.map.kpt
+/home/bananasuper/Data/C5TB_GHRD_CCIC7_C5TB_test/db/C5TB_top_tmp_qic_export/C5TB_top.map.qxp_info
+/home/bananasuper/Data/C5TB_GHRD_CCIC7_C5TB_test/db/C5TB_top_tmp_qic_export/C5TB_top.map.scidsc
+/home/bananasuper/Data/C5TB_GHRD_CCIC7_C5TB_test/db/C5TB_top_tmp_qic_export/qic_export_file_list
+	======= Total: 8 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.
+
+
+******* Archived project restoration attempt on Wed Mar 22 20:30:43 2023
+Source archive file:	/home/bananasuper/Data/C5TB_GHRD_CCIC7_C5TB/ip/vcam.qxp
+Archive was extracted into	/tmp/alt9438_8861945098284435873.dir/0003_sopcqmap/db/_tmp_qic_import/
+		 - successfully.

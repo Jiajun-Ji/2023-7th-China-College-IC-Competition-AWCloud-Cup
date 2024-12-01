@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/CMakeFiles/extern_protobuf"
+		},
+		{
+			"file" : "/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/CMakeFiles/extern_protobuf.rule"
+		},
+		{
+			"file" : "/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/CMakeFiles/extern_protobuf-complete.rule"
+		},
+		{
+			"file" : "/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/third_party/protobuf/src/extern_protobuf-stamp/extern_protobuf-install.rule"
+		},
+		{
+			"file" : "/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/third_party/protobuf/src/extern_protobuf-stamp/extern_protobuf-mkdir.rule"
+		},
+		{
+			"file" : "/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/third_party/protobuf/src/extern_protobuf-stamp/extern_protobuf-download.rule"
+		},
+		{
+			"file" : "/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/third_party/protobuf/src/extern_protobuf-stamp/extern_protobuf-update.rule"
+		},
+		{
+			"file" : "/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/third_party/protobuf/src/extern_protobuf-stamp/extern_protobuf-patch.rule"
+		},
+		{
+			"file" : "/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/third_party/protobuf/src/extern_protobuf-stamp/extern_protobuf-configure.rule"
+		},
+		{
+			"file" : "/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/third_party/protobuf/src/extern_protobuf-stamp/extern_protobuf-build.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"extern_protobuf"
+		],
+		"name" : "extern_protobuf"
+	}
+}

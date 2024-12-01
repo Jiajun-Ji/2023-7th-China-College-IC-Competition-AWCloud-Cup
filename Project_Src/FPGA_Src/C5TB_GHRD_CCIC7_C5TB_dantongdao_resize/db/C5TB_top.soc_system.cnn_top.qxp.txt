@@ -1,0 +1,70 @@
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
++----------------------------------------------------------------------------+
+; Quartus Prime QXP Design File                                              ;
++------------------+---------------------------------------------------------+
+; Field            ; Value                                                   ;
++------------------+---------------------------------------------------------+
+; Entity           ; cnn_top                                                 ;
+; Case Sensitive   ;                                                         ;
+; QXP Source       ; soc_system/synthesis/submodules/cnn_top.qxp             ;
+; Software Version ; Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
+; Date             ; Tue May 09 21:11:36 2023                                ;
+; Contents         ; Netlist Only                                            ;
+; Family           ; 5CSEBA6U23I7                                            ;
+; Device           ; CYCLONEV_SE120B_V_U672I7                                ;
++------------------+---------------------------------------------------------+
+
++---------------------------------------------------------------------------------------------------------+
+; Boundary Ports                                                                                          ;
++-----------------------------+--------+------------------------------------------------------------------+
+; Port Name                   ; Type   ; Default Value                                                    ;
++-----------------------------+--------+------------------------------------------------------------------+
+; sysclk                      ; input  ; 0                                                                ;
+; rst_n                       ; input  ; 0                                                                ;
+; as_address [7:0]            ; input  ; 00000000                                                         ;
+; as_write                    ; input  ; 0                                                                ;
+; as_read                     ; input  ; 0                                                                ;
+; as_writedata [31:0]         ; input  ; 00000000000000000000000000000000                                 ;
+; as_readdata [31:0]          ; output ; 00000000000000000000000000000000                                 ;
+; as_data_waitquest           ; output ; 0                                                                ;
+; param_avm_waitrequest       ; input  ; 0                                                                ;
+; param_avm_readdatavalid     ; input  ; 0                                                                ;
+; param_avm_readdata [31:0]   ; input  ; 00000000000000000000000000000000                                 ;
+; param_avm_address [31:0]    ; output ; 00000000000000000000000000000000                                 ;
+; param_avm_read              ; output ; 0                                                                ;
+; param_avm_byteenable [3:0]  ; output ; 0000                                                             ;
+; param_avm_burstcount [4:0]  ; output ; 00000                                                            ;
+; load_avm_waitrequest        ; input  ; 0                                                                ;
+; load_avm_readdatavalid      ; input  ; 0                                                                ;
+; load_avm_readdata [63:0]    ; input  ; 0000000000000000000000000000000000000000000000000000000000000000 ;
+; load_avm_address [31:0]     ; output ; 00000000000000000000000000000000                                 ;
+; load_avm_read               ; output ; 0                                                                ;
+; load_avm_byteenable [7:0]   ; output ; 00000000                                                         ;
+; load_avm_burstcount [4:0]   ; output ; 00000                                                            ;
+; scale_avm_waitrequest       ; input  ; 0                                                                ;
+; scale_avm_readdatavalid     ; input  ; 0                                                                ;
+; scale_avm_readdata [31:0]   ; input  ; 00000000000000000000000000000000                                 ;
+; scale_avm_address [31:0]    ; output ; 00000000000000000000000000000000                                 ;
+; scale_avm_read              ; output ; 0                                                                ;
+; scale_avm_byteenable [3:0]  ; output ; 0000                                                             ;
+; scale_avm_burstcount [4:0]  ; output ; 00000                                                            ;
+; output_avm_waitrequest      ; input  ; 0                                                                ;
+; output_avm_address [31:0]   ; output ; 00000000000000000000000000000000                                 ;
+; output_avm_write            ; output ; 0                                                                ;
+; output_avm_byteenable [7:0] ; output ; 00000000                                                         ;
+; output_avm_writedata [63:0] ; output ; 0000000000000000000000000000000000000000000000000000000000000000 ;
+; output_avm_burstcount [4:0] ; output ; 00000                                                            ;
++-----------------------------+--------+------------------------------------------------------------------+

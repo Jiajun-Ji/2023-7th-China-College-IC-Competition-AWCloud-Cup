@@ -1,0 +1,17 @@
+Partition Merge Status : Successful - Wed Aug 16 21:12:03 2023
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Standard Edition
+Revision Name : C5TB_top
+Top-level Entity Name : C5TB_top
+Family : Cyclone V
+Logic utilization (in ALMs) : 23,024 / 41,910 ( 55 % )
+Total registers : 28013
+Total pins : 134 / 314 ( 43 % )
+Total virtual pins : 0
+Total block memory bits : 1,512,900 / 5,662,720 ( 27 % )
+Total DSP Blocks : 99 / 112 ( 88 % )
+Total HSSI RX PCSs : 0
+Total HSSI PMA RX Deserializers : 0
+Total HSSI TX PCSs : 0
+Total HSSI PMA TX Serializers : 0
+Total PLLs : 4 / 6 ( 67 % )
+Total DLLs : 1 / 4 ( 25 % )

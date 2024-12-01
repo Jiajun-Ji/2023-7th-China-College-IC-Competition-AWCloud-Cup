@@ -1,0 +1,217 @@
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_5bd9f/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_5bd9f.dir/build.make CMakeFiles/cmTC_5bd9f.dir/build
+gmake[1]: Entering directory `/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5bd9f.dir/CheckSymbolExists.c.o
+/opt/software/gcc-linaro-5.4.1-2017.05-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc    -o CMakeFiles/cmTC_5bd9f.dir/CheckSymbolExists.c.o   -c /opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_5bd9f
+/opt/software/cmake-3.10.3-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5bd9f.dir/link.txt --verbose=1
+/opt/software/gcc-linaro-5.4.1-2017.05-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc      -rdynamic CMakeFiles/cmTC_5bd9f.dir/CheckSymbolExists.c.o  -o cmTC_5bd9f 
+CMakeFiles/cmTC_5bd9f.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0xe): undefined reference to `pthread_create'
+CheckSymbolExists.c:(.text+0x12): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [cmTC_5bd9f] Error 1
+gmake[1]: Leaving directory `/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_5bd9f/fast] Error 2
+
+File /opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_e7a23/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_e7a23.dir/build.make CMakeFiles/cmTC_e7a23.dir/build
+gmake[1]: Entering directory `/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e7a23.dir/CheckFunctionExists.c.o
+/opt/software/gcc-linaro-5.4.1-2017.05-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_e7a23.dir/CheckFunctionExists.c.o   -c /opt/software/cmake-3.10.3-Linux-x86_64/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_e7a23
+/opt/software/cmake-3.10.3-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e7a23.dir/link.txt --verbose=1
+/opt/software/gcc-linaro-5.4.1-2017.05-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_e7a23.dir/CheckFunctionExists.c.o  -o cmTC_e7a23 -lpthreads 
+/opt/software/gcc-linaro-5.4.1-2017.05-x86_64_arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/5.4.1/../../../../arm-linux-gnueabihf/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [cmTC_e7a23] Error 1
+gmake[1]: Leaving directory `/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_e7a23/fast] Error 2
+
+
+Performing C++ SOURCE FILE Test FMA_FOUND failed with the following output:
+Change Dir: /opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_fe648/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_fe648.dir/build.make CMakeFiles/cmTC_fe648.dir/build
+gmake[1]: Entering directory `/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_fe648.dir/src.cxx.o
+/opt/software/gcc-linaro-5.4.1-2017.05-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++    -DFMA_FOUND -mfma   -o CMakeFiles/cmTC_fe648.dir/src.cxx.o -c /opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/CMakeFiles/CMakeTmp/src.cxx
+arm-linux-gnueabihf-g++: error: unrecognized command line option ‘-mfma’
+gmake[1]: *** [CMakeFiles/cmTC_fe648.dir/src.cxx.o] Error 1
+gmake[1]: Leaving directory `/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_fe648/fast] Error 2
+
+Return value: 1
+Source file was:
+
+#include <immintrin.h>
+int main()
+{
+    __m256 _a = _mm256_set1_ps(1.f);
+    __m256 _b = _mm256_set1_ps(2.f);
+    __m256 _c = _mm256_set1_ps(3.f);
+    __m256 _res = _mm256_fmadd_ps(_a, _b, _c);
+    return 0;
+}
+Performing C++ SOURCE FILE Test MMX_FOUND failed with the following output:
+Change Dir: /opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_99ff4/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_99ff4.dir/build.make CMakeFiles/cmTC_99ff4.dir/build
+gmake[1]: Entering directory `/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_99ff4.dir/src.cxx.o
+/opt/software/gcc-linaro-5.4.1-2017.05-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++    -DMMX_FOUND -mmmx   -o CMakeFiles/cmTC_99ff4.dir/src.cxx.o -c /opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/CMakeFiles/CMakeTmp/src.cxx
+arm-linux-gnueabihf-g++: error: unrecognized command line option ‘-mmmx’
+gmake[1]: *** [CMakeFiles/cmTC_99ff4.dir/src.cxx.o] Error 1
+gmake[1]: Leaving directory `/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_99ff4/fast] Error 2
+
+Return value: 1
+Source file was:
+
+#include <mmintrin.h>
+int main()
+{
+    _mm_setzero_si64();
+    return 0;
+}
+Performing C++ SOURCE FILE Test SSE2_FOUND failed with the following output:
+Change Dir: /opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_e52c0/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_e52c0.dir/build.make CMakeFiles/cmTC_e52c0.dir/build
+gmake[1]: Entering directory `/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_e52c0.dir/src.cxx.o
+/opt/software/gcc-linaro-5.4.1-2017.05-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++    -DSSE2_FOUND -msse2   -o CMakeFiles/cmTC_e52c0.dir/src.cxx.o -c /opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/CMakeFiles/CMakeTmp/src.cxx
+arm-linux-gnueabihf-g++: error: unrecognized command line option ‘-msse2’
+gmake[1]: *** [CMakeFiles/cmTC_e52c0.dir/src.cxx.o] Error 1
+gmake[1]: Leaving directory `/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_e52c0/fast] Error 2
+
+Return value: 1
+Source file was:
+
+#include <emmintrin.h>
+int main()
+{
+    _mm_setzero_si128();
+    return 0;
+}
+Performing C++ SOURCE FILE Test SSE3_FOUND failed with the following output:
+Change Dir: /opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_1a6a5/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_1a6a5.dir/build.make CMakeFiles/cmTC_1a6a5.dir/build
+gmake[1]: Entering directory `/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_1a6a5.dir/src.cxx.o
+/opt/software/gcc-linaro-5.4.1-2017.05-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++    -DSSE3_FOUND -msse3   -o CMakeFiles/cmTC_1a6a5.dir/src.cxx.o -c /opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/CMakeFiles/CMakeTmp/src.cxx
+arm-linux-gnueabihf-g++: error: unrecognized command line option ‘-msse3’
+gmake[1]: *** [CMakeFiles/cmTC_1a6a5.dir/src.cxx.o] Error 1
+gmake[1]: Leaving directory `/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_1a6a5/fast] Error 2
+
+Return value: 1
+Source file was:
+
+#include <pmmintrin.h>
+int main()
+{
+    __m128d a = _mm_set1_pd(6.28);
+    __m128d b = _mm_set1_pd(3.14);
+    __m128d result = _mm_addsub_pd(a, b);
+    result = _mm_movedup_pd(result);
+    return 0;
+}
+Performing C++ SOURCE FILE Test AVX_FOUND failed with the following output:
+Change Dir: /opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_e7c9b/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_e7c9b.dir/build.make CMakeFiles/cmTC_e7c9b.dir/build
+gmake[1]: Entering directory `/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_e7c9b.dir/src.cxx.o
+/opt/software/gcc-linaro-5.4.1-2017.05-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++    -DAVX_FOUND -mavx   -o CMakeFiles/cmTC_e7c9b.dir/src.cxx.o -c /opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/CMakeFiles/CMakeTmp/src.cxx
+arm-linux-gnueabihf-g++: error: unrecognized command line option ‘-mavx’
+gmake[1]: *** [CMakeFiles/cmTC_e7c9b.dir/src.cxx.o] Error 1
+gmake[1]: Leaving directory `/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_e7c9b/fast] Error 2
+
+Return value: 1
+Source file was:
+
+#include <immintrin.h>
+int main()
+{
+    __m256 a = _mm256_set_ps (-1.0f, 2.0f, -3.0f, 4.0f, -1.0f, 2.0f, -3.0f, 4.0f);
+    __m256 b = _mm256_set_ps (1.0f, 2.0f, 3.0f, 4.0f, 1.0f, 2.0f, 3.0f, 4.0f);
+    __m256 result = _mm256_add_ps (a, b);
+    return 0;
+}
+Performing C++ SOURCE FILE Test AVX2_FOUND failed with the following output:
+Change Dir: /opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_6c2cf/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_6c2cf.dir/build.make CMakeFiles/cmTC_6c2cf.dir/build
+gmake[1]: Entering directory `/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_6c2cf.dir/src.cxx.o
+/opt/software/gcc-linaro-5.4.1-2017.05-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++    -DAVX2_FOUND -mavx2   -o CMakeFiles/cmTC_6c2cf.dir/src.cxx.o -c /opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/CMakeFiles/CMakeTmp/src.cxx
+arm-linux-gnueabihf-g++: error: unrecognized command line option ‘-mavx2’
+gmake[1]: *** [CMakeFiles/cmTC_6c2cf.dir/src.cxx.o] Error 1
+gmake[1]: Leaving directory `/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_6c2cf/fast] Error 2
+
+Return value: 1
+Source file was:
+
+#include <immintrin.h>
+int main()
+{
+    __m256i a = _mm256_set_epi32 (-1, 2, -3, 4, -1, 2, -3, 4);
+    __m256i result = _mm256_abs_epi32 (a);
+    return 0;
+}
+Performing C++ SOURCE FILE Test AVX512F_FOUND failed with the following output:
+Change Dir: /opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_30953/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_30953.dir/build.make CMakeFiles/cmTC_30953.dir/build
+gmake[1]: Entering directory `/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_30953.dir/src.cxx.o
+/opt/software/gcc-linaro-5.4.1-2017.05-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++    -DAVX512F_FOUND -mavx512f   -o CMakeFiles/cmTC_30953.dir/src.cxx.o -c /opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/CMakeFiles/CMakeTmp/src.cxx
+arm-linux-gnueabihf-g++: error: unrecognized command line option ‘-mavx512f’
+gmake[1]: *** [CMakeFiles/cmTC_30953.dir/src.cxx.o] Error 1
+gmake[1]: Leaving directory `/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_30953/fast] Error 2
+
+Return value: 1
+Source file was:
+
+#include <immintrin.h>
+int main()
+{
+    __m512i a = _mm512_set_epi32 (-1, 2, -3, 4, -1, 2, -3, 4,
+                                  13, -5, 6, -7, 9, 2, -6, 3);
+    __m512i result = _mm512_abs_epi32 (a);
+    return 0;
+}

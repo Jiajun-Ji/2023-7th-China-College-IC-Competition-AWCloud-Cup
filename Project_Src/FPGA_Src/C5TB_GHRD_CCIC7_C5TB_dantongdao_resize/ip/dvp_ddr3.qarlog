@@ -1,0 +1,19 @@
+Quartus Prime Archive log --	/home/bananasuper/Data/C5TB_GHRD_CCIC7_C5TB_test/dvp_ddr3.qarlog
+
+Archive:	/home/bananasuper/Data/C5TB_GHRD_CCIC7_C5TB_test/dvp_ddr3.qar
+Date:		Wed Mar 22 18:53:11 2023
+Quartus Prime		18.1.0 Build 625 09/12/2018 SJ Standard Edition
+
+	=========== Files Selected: ===========
+/home/bananasuper/Data/C5TB_GHRD_CCIC7_C5TB_test/db/C5TB_top_tmp_qic_export/C5TB_top.map.atm
+/home/bananasuper/Data/C5TB_GHRD_CCIC7_C5TB_test/db/C5TB_top_tmp_qic_export/C5TB_top.map.dpi
+/home/bananasuper/Data/C5TB_GHRD_CCIC7_C5TB_test/db/C5TB_top_tmp_qic_export/C5TB_top.map.hdbx
+/home/bananasuper/Data/C5TB_GHRD_CCIC7_C5TB_test/db/C5TB_top_tmp_qic_export/C5TB_top.map.logdb
+/home/bananasuper/Data/C5TB_GHRD_CCIC7_C5TB_test/db/C5TB_top_tmp_qic_export/C5TB_top.map.map.kpt
+/home/bananasuper/Data/C5TB_GHRD_CCIC7_C5TB_test/db/C5TB_top_tmp_qic_export/C5TB_top.map.qxp_info
+/home/bananasuper/Data/C5TB_GHRD_CCIC7_C5TB_test/db/C5TB_top_tmp_qic_export/C5TB_top.map.scidsc
+/home/bananasuper/Data/C5TB_GHRD_CCIC7_C5TB_test/db/C5TB_top_tmp_qic_export/qic_export_file_list
+	======= Total: 8 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.

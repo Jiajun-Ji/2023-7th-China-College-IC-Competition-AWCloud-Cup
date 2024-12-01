@@ -1,0 +1,2 @@
+/opt/software/gcc-linaro-5.4.1-2017.05-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-ar qc libpaddle_api_light.a  CMakeFiles/paddle_api_light.dir/light_api.cc.o CMakeFiles/paddle_api_light.dir/paddle_api.cc.o CMakeFiles/paddle_api_light.dir/light_api_impl.cc.o CMakeFiles/paddle_api_light.dir/paddle_place.cc.o
+/opt/software/gcc-linaro-5.4.1-2017.05-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-ranlib libpaddle_api_light.a

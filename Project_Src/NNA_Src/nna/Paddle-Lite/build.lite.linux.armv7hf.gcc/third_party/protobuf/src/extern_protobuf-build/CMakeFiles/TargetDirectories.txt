@@ -1,0 +1,10 @@
+/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/third_party/protobuf/src/extern_protobuf-build/CMakeFiles/install/strip.dir
+/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/third_party/protobuf/src/extern_protobuf-build/CMakeFiles/install/local.dir
+/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/third_party/protobuf/src/extern_protobuf-build/CMakeFiles/install.dir
+/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/third_party/protobuf/src/extern_protobuf-build/CMakeFiles/list_install_components.dir
+/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/third_party/protobuf/src/extern_protobuf-build/CMakeFiles/rebuild_cache.dir
+/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/third_party/protobuf/src/extern_protobuf-build/CMakeFiles/edit_cache.dir
+/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/third_party/protobuf/src/extern_protobuf-build/CMakeFiles/libprotobuf-lite.dir
+/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/third_party/protobuf/src/extern_protobuf-build/CMakeFiles/libprotoc.dir
+/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/third_party/protobuf/src/extern_protobuf-build/CMakeFiles/libprotobuf.dir
+/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/third_party/protobuf/src/extern_protobuf-build/CMakeFiles/protoc.dir

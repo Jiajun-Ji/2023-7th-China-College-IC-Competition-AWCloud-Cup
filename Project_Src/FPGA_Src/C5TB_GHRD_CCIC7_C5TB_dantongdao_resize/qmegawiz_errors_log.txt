@@ -1,0 +1,6 @@
+
+
+E:/7th/C17_final/my_ip/C5TB_GHRD_CCIC7_C5TB/ip/vga_pll/vga_pll.v
+
+May 22 09PM:25:06>: Megafunction PLL Intel FPGA IP v18.1 is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted

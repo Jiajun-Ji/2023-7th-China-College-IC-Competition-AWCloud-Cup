@@ -1,0 +1,13 @@
+# Target labels
+ extern_gflags
+# Source files and their labels
+/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/CMakeFiles/extern_gflags
+/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/CMakeFiles/extern_gflags.rule
+/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/CMakeFiles/extern_gflags-complete.rule
+/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/third_party/install/gflags/include/src/extern_gflags-stamp/extern_gflags-install.rule
+/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/third_party/install/gflags/include/src/extern_gflags-stamp/extern_gflags-mkdir.rule
+/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/third_party/install/gflags/include/src/extern_gflags-stamp/extern_gflags-download.rule
+/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/third_party/install/gflags/include/src/extern_gflags-stamp/extern_gflags-update.rule
+/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/third_party/install/gflags/include/src/extern_gflags-stamp/extern_gflags-patch.rule
+/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/third_party/install/gflags/include/src/extern_gflags-stamp/extern_gflags-configure.rule
+/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/third_party/install/gflags/include/src/extern_gflags-stamp/extern_gflags-build.rule

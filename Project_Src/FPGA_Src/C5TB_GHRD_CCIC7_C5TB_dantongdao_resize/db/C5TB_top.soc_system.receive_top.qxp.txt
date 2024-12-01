@@ -1,0 +1,54 @@
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
++----------------------------------------------------------------------------+
+; Quartus Prime QXP Design File                                              ;
++------------------+---------------------------------------------------------+
+; Field            ; Value                                                   ;
++------------------+---------------------------------------------------------+
+; Entity           ; receive_top                                             ;
+; Case Sensitive   ;                                                         ;
+; QXP Source       ; soc_system/synthesis/submodules/vhdmi.qxp               ;
+; Software Version ; Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
+; Date             ; Wed Mar 22 18:52:29 2023                                ;
+; Contents         ; Netlist Only                                            ;
+; Family           ; 5CSEBA6U23I7                                            ;
+; Device           ; CYCLONEV_SE120B_V_U672I7                                ;
++------------------+---------------------------------------------------------+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Boundary Ports                                                                                                                                                   ;
++----------------------+--------+----------------------------------------------------------------------------------------------------------------------------------+
+; Port Name            ; Type   ; Default Value                                                                                                                    ;
++----------------------+--------+----------------------------------------------------------------------------------------------------------------------------------+
+; clk_hps              ; input  ; 0                                                                                                                                ;
+; rst_n                ; input  ; 0                                                                                                                                ;
+; s_avl_chipselect     ; input  ; 0                                                                                                                                ;
+; s_avl_wr_req         ; input  ; 0                                                                                                                                ;
+; s_avl_rd_req         ; input  ; 0                                                                                                                                ;
+; s_avl_address [7:0]  ; input  ; 00000000                                                                                                                         ;
+; s_avl_wr_data [31:0] ; input  ; 00000000000000000000000000000000                                                                                                 ;
+; s_avl_rd_data [31:0] ; output ; 00000000000000000000000000000000                                                                                                 ;
+; m_avl_waitrequest    ; input  ; 0                                                                                                                                ;
+; m_avl_addr [31:0]    ; output ; 00000000000000000000000000000000                                                                                                 ;
+; m_avl_wdata [127:0]  ; output ; 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 ;
+; m_avl_be [15:0]      ; output ; 0000000000000000                                                                                                                 ;
+; m_avl_write_req      ; output ; 0                                                                                                                                ;
+; m_avl_size [7:0]     ; output ; 00000000                                                                                                                         ;
+; vga_clk              ; input  ; 0                                                                                                                                ;
+; vga_de               ; input  ; 0                                                                                                                                ;
+; vga_vsync            ; input  ; 0                                                                                                                                ;
+; vga_hsync            ; input  ; 0                                                                                                                                ;
+; vga_rgb [23:0]       ; input  ; 000000000000000000000000                                                                                                         ;
++----------------------+--------+----------------------------------------------------------------------------------------------------------------------------------+

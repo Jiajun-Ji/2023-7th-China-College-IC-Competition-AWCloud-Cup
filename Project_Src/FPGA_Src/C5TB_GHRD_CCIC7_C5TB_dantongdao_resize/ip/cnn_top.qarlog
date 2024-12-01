@@ -1,0 +1,19 @@
+Quartus Prime Archive log --	/home/bananasuper/Data/C5MB_GHRD_dense_20230116/cnn_top.qarlog
+
+Archive:	/home/bananasuper/Data/C5MB_GHRD_dense_20230116/cnn_top.qar
+Date:		Tue May  9 21:11:37 2023
+Quartus Prime		18.1.0 Build 625 09/12/2018 SJ Standard Edition
+
+	=========== Files Selected: ===========
+/home/bananasuper/Data/C5MB_GHRD_dense_20230116/db/C5MB_top_tmp_qic_export/C5MB_top.map.atm
+/home/bananasuper/Data/C5MB_GHRD_dense_20230116/db/C5MB_top_tmp_qic_export/C5MB_top.map.dpi
+/home/bananasuper/Data/C5MB_GHRD_dense_20230116/db/C5MB_top_tmp_qic_export/C5MB_top.map.hdbx
+/home/bananasuper/Data/C5MB_GHRD_dense_20230116/db/C5MB_top_tmp_qic_export/C5MB_top.map.logdb
+/home/bananasuper/Data/C5MB_GHRD_dense_20230116/db/C5MB_top_tmp_qic_export/C5MB_top.map.map.kpt
+/home/bananasuper/Data/C5MB_GHRD_dense_20230116/db/C5MB_top_tmp_qic_export/C5MB_top.map.qxp_info
+/home/bananasuper/Data/C5MB_GHRD_dense_20230116/db/C5MB_top_tmp_qic_export/C5MB_top.map.scidsc
+/home/bananasuper/Data/C5MB_GHRD_dense_20230116/db/C5MB_top_tmp_qic_export/qic_export_file_list
+	======= Total: 8 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.

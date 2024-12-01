@@ -1,0 +1,340 @@
+Info: Starting: Create block symbol file (.bsf)
+Info: qsys-generate E:\FPGA\ji_chuang_sai\ji_chuang_sai_7\Demo\7_10\C5TB_GHRD_CCIC7_C5TB_chusaide1_dantongdao\soc_system.qsys --block-symbol-file --output-directory=E:\FPGA\ji_chuang_sai\ji_chuang_sai_7\Demo\7_10\C5TB_GHRD_CCIC7_C5TB_chusaide1_dantongdao\soc_system --family="Cyclone V" --part=5CSEBA6U23I7
+Progress: Loading C5TB_GHRD_CCIC7_C5TB_chusaide1_dantongdao/soc_system.qsys
+Progress: Reading input file
+Progress: Adding button_pio [altera_avalon_pio 18.1]
+Progress: Parameterizing module button_pio
+Progress: Adding clk_50 [clock_source 18.1]
+Progress: Parameterizing module clk_50
+Progress: Adding clk_cnn [clock_source 18.1]
+Progress: Parameterizing module clk_cnn
+Progress: Adding cnn_top_0 [cnn_top 2.0]
+Progress: Parameterizing module cnn_top_0
+Progress: Adding ddr3_vga_0 [ddr3_vga 1.0]
+Progress: Parameterizing module ddr3_vga_0
+Progress: Adding dipsw_pio [altera_avalon_pio 18.1]
+Progress: Parameterizing module dipsw_pio
+Progress: Adding dvp_ddr3_0 [dvp_ddr3 1.0]
+Progress: Parameterizing module dvp_ddr3_0
+Progress: Adding dvp_ddr3_vga_top_0 [dvp_ddr3_vga_top 1.0]
+Progress: Parameterizing module dvp_ddr3_vga_top_0
+Progress: Adding f2sdram_only_master [altera_jtag_avalon_master 18.1]
+Progress: Parameterizing module f2sdram_only_master
+Progress: Adding fpga_only_master [altera_jtag_avalon_master 18.1]
+Progress: Parameterizing module fpga_only_master
+Progress: Adding hps_0 [altera_hps 18.1]
+Progress: Parameterizing module hps_0
+Progress: Adding hps_only_master [altera_jtag_avalon_master 18.1]
+Progress: Parameterizing module hps_only_master
+Progress: Adding led_pio [altera_avalon_pio 18.1]
+Progress: Parameterizing module led_pio
+Progress: Adding mm_bridge_axi [altera_avalon_mm_bridge 18.1]
+Progress: Parameterizing module mm_bridge_axi
+Progress: Adding mm_bridge_lw_axi [altera_avalon_mm_bridge 18.1]
+Progress: Parameterizing module mm_bridge_lw_axi
+Progress: Adding mm_bridge_sdram0 [altera_avalon_mm_bridge 18.1]
+Progress: Parameterizing module mm_bridge_sdram0
+Progress: Adding pll_1_cnn [altera_pll 18.1]
+Progress: Parameterizing module pll_1_cnn
+Progress: Adding sld_hub_controller_system_0 [altera_sld_hub_controller_system 18.1]
+Progress: Parameterizing module sld_hub_controller_system_0
+Progress: Adding sysid_qsys [altera_avalon_sysid_qsys 18.1]
+Progress: Parameterizing module sysid_qsys
+Progress: Adding vcam_0 [vcam 1.0]
+Progress: Parameterizing module vcam_0
+Progress: Adding vhdmi_0 [vhdmi 1.0]
+Progress: Parameterizing module vhdmi_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: soc_system.hps_0: HPS Main PLL counter settings: n = 0  m = 63
+Info: soc_system.hps_0: HPS peripherial PLL counter settings: n = 0  m = 39
+Info: soc_system.led_pio: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Info: soc_system.pll_1_cnn: The legal reference clock frequency is 5.0 MHz..700.0 MHz
+Info: soc_system.pll_1_cnn: Able to implement PLL with user settings
+Info: soc_system.sld_hub_controller_system_0.link.write_slave_to_source: For Avalon-ST and Avalon-MM combinations, data width is 32 bits.
+Info: soc_system.sld_hub_controller_system_0.link.sink_to_read_slave: For Avalon-ST and Avalon-MM combinations, data width is 32 bits.
+Info: soc_system.sld_hub_controller_system_0.link.mgmt/fabric.mgmt: Max channel is 255 for source and 1 for sink. Avalon-ST Adapter will be inserted..
+Info: soc_system.sld_hub_controller_system_0.link.mgmt/fabric.mgmt: The source channel signal is 8 bits, but the sink is 1 bits. Avalon-ST Adapter will be inserted.
+Info: soc_system.sysid_qsys: System ID is not assigned automatically. Edit the System ID parameter to provide a unique ID
+Info: soc_system.sysid_qsys: Time stamp will be automatically updated when this component is generated.
+Warning: soc_system.dvp_ddr3_vga_top_0: dvp_ddr3_vga_top_0.dvp_wire must be exported, or connected to a matching conduit.
+Warning: soc_system.dvp_ddr3_vga_top_0: dvp_ddr3_vga_top_0.vga_wire must be exported, or connected to a matching conduit.
+Info: qsys-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: qsys-generate E:\FPGA\ji_chuang_sai\ji_chuang_sai_7\Demo\7_10\C5TB_GHRD_CCIC7_C5TB_chusaide1_dantongdao\soc_system.qsys --synthesis=VERILOG --output-directory=E:\FPGA\ji_chuang_sai\ji_chuang_sai_7\Demo\7_10\C5TB_GHRD_CCIC7_C5TB_chusaide1_dantongdao\soc_system\synthesis --family="Cyclone V" --part=5CSEBA6U23I7
+Progress: Loading C5TB_GHRD_CCIC7_C5TB_chusaide1_dantongdao/soc_system.qsys
+Progress: Reading input file
+Progress: Adding button_pio [altera_avalon_pio 18.1]
+Progress: Parameterizing module button_pio
+Progress: Adding clk_50 [clock_source 18.1]
+Progress: Parameterizing module clk_50
+Progress: Adding clk_cnn [clock_source 18.1]
+Progress: Parameterizing module clk_cnn
+Progress: Adding cnn_top_0 [cnn_top 2.0]
+Progress: Parameterizing module cnn_top_0
+Progress: Adding ddr3_vga_0 [ddr3_vga 1.0]
+Progress: Parameterizing module ddr3_vga_0
+Progress: Adding dipsw_pio [altera_avalon_pio 18.1]
+Progress: Parameterizing module dipsw_pio
+Progress: Adding dvp_ddr3_0 [dvp_ddr3 1.0]
+Progress: Parameterizing module dvp_ddr3_0
+Progress: Adding dvp_ddr3_vga_top_0 [dvp_ddr3_vga_top 1.0]
+Progress: Parameterizing module dvp_ddr3_vga_top_0
+Progress: Adding f2sdram_only_master [altera_jtag_avalon_master 18.1]
+Progress: Parameterizing module f2sdram_only_master
+Progress: Adding fpga_only_master [altera_jtag_avalon_master 18.1]
+Progress: Parameterizing module fpga_only_master
+Progress: Adding hps_0 [altera_hps 18.1]
+Progress: Parameterizing module hps_0
+Progress: Adding hps_only_master [altera_jtag_avalon_master 18.1]
+Progress: Parameterizing module hps_only_master
+Progress: Adding led_pio [altera_avalon_pio 18.1]
+Progress: Parameterizing module led_pio
+Progress: Adding mm_bridge_axi [altera_avalon_mm_bridge 18.1]
+Progress: Parameterizing module mm_bridge_axi
+Progress: Adding mm_bridge_lw_axi [altera_avalon_mm_bridge 18.1]
+Progress: Parameterizing module mm_bridge_lw_axi
+Progress: Adding mm_bridge_sdram0 [altera_avalon_mm_bridge 18.1]
+Progress: Parameterizing module mm_bridge_sdram0
+Progress: Adding pll_1_cnn [altera_pll 18.1]
+Progress: Parameterizing module pll_1_cnn
+Progress: Adding sld_hub_controller_system_0 [altera_sld_hub_controller_system 18.1]
+Progress: Parameterizing module sld_hub_controller_system_0
+Progress: Adding sysid_qsys [altera_avalon_sysid_qsys 18.1]
+Progress: Parameterizing module sysid_qsys
+Progress: Adding vcam_0 [vcam 1.0]
+Progress: Parameterizing module vcam_0
+Progress: Adding vhdmi_0 [vhdmi 1.0]
+Progress: Parameterizing module vhdmi_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: soc_system.hps_0: HPS Main PLL counter settings: n = 0  m = 63
+Info: soc_system.hps_0: HPS peripherial PLL counter settings: n = 0  m = 39
+Info: soc_system.led_pio: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Info: soc_system.pll_1_cnn: The legal reference clock frequency is 5.0 MHz..700.0 MHz
+Info: soc_system.pll_1_cnn: Able to implement PLL with user settings
+Info: soc_system.sld_hub_controller_system_0.link.write_slave_to_source: For Avalon-ST and Avalon-MM combinations, data width is 32 bits.
+Info: soc_system.sld_hub_controller_system_0.link.sink_to_read_slave: For Avalon-ST and Avalon-MM combinations, data width is 32 bits.
+Info: soc_system.sld_hub_controller_system_0.link.mgmt/fabric.mgmt: Max channel is 255 for source and 1 for sink. Avalon-ST Adapter will be inserted..
+Info: soc_system.sld_hub_controller_system_0.link.mgmt/fabric.mgmt: The source channel signal is 8 bits, but the sink is 1 bits. Avalon-ST Adapter will be inserted.
+Info: soc_system.sysid_qsys: System ID is not assigned automatically. Edit the System ID parameter to provide a unique ID
+Info: soc_system.sysid_qsys: Time stamp will be automatically updated when this component is generated.
+Warning: soc_system.dvp_ddr3_vga_top_0: dvp_ddr3_vga_top_0.dvp_wire must be exported, or connected to a matching conduit.
+Warning: soc_system.dvp_ddr3_vga_top_0: dvp_ddr3_vga_top_0.vga_wire must be exported, or connected to a matching conduit.
+Info: soc_system: Generating soc_system "soc_system" for QUARTUS_SYNTH
+Info: Interconnect is inserted between master hps_0.h2f_lw_axi_master and slave mm_bridge_lw_axi.s0 because the master is of type axi and the slave is of type avalon.
+Info: Inserting clock-crossing logic between cmd_demux.src3 and cmd_mux_003.sink0
+Info: Inserting clock-crossing logic between rsp_demux_003.src0 and rsp_mux.sink3
+Info: Inserting clock-crossing logic between cmd_demux_001.src0 and cmd_mux.sink1
+Info: Inserting clock-crossing logic between rsp_demux.src1 and rsp_mux_001.sink0
+Warning: hps_0.f2h_irq0: Cannot connect clock for irq_mapper.sender
+Warning: hps_0.f2h_irq0: Cannot connect reset for irq_mapper.sender
+Warning: hps_0.f2h_irq1: Cannot connect clock for irq_mapper_001.sender
+Warning: hps_0.f2h_irq1: Cannot connect reset for irq_mapper_001.sender
+Info: button_pio: Starting RTL generation for module 'soc_system_button_pio'
+Info: button_pio:   Generation command is [exec E:/intelfpga/18.1/quartus/bin64/perl/bin/perl.exe -I E:/intelfpga/18.1/quartus/bin64/perl/lib -I E:/intelfpga/18.1/quartus/sopc_builder/bin/europa -I E:/intelfpga/18.1/quartus/sopc_builder/bin/perl_lib -I E:/intelfpga/18.1/quartus/sopc_builder/bin -I E:/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/common -I E:/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- E:/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=soc_system_button_pio --dir=E:/user/Temp/alt9562_5705855293003876491.dir/0107_button_pio_gen/ --quartus_dir=E:/intelfpga/18.1/quartus --verilog --config=E:/user/Temp/alt9562_5705855293003876491.dir/0107_button_pio_gen//soc_system_button_pio_component_configuration.pl  --do_build_sim=0  ]
+Info: button_pio: Done RTL generation for module 'soc_system_button_pio'
+Info: button_pio: "soc_system" instantiated altera_avalon_pio "button_pio"
+Info: cnn_top_0: "soc_system" instantiated cnn_top "cnn_top_0"
+Info: dipsw_pio: Starting RTL generation for module 'soc_system_dipsw_pio'
+Info: dipsw_pio:   Generation command is [exec E:/intelfpga/18.1/quartus/bin64/perl/bin/perl.exe -I E:/intelfpga/18.1/quartus/bin64/perl/lib -I E:/intelfpga/18.1/quartus/sopc_builder/bin/europa -I E:/intelfpga/18.1/quartus/sopc_builder/bin/perl_lib -I E:/intelfpga/18.1/quartus/sopc_builder/bin -I E:/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/common -I E:/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- E:/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=soc_system_dipsw_pio --dir=E:/user/Temp/alt9562_5705855293003876491.dir/0109_dipsw_pio_gen/ --quartus_dir=E:/intelfpga/18.1/quartus --verilog --config=E:/user/Temp/alt9562_5705855293003876491.dir/0109_dipsw_pio_gen//soc_system_dipsw_pio_component_configuration.pl  --do_build_sim=0  ]
+Info: dipsw_pio: Done RTL generation for module 'soc_system_dipsw_pio'
+Info: dipsw_pio: "soc_system" instantiated altera_avalon_pio "dipsw_pio"
+Info: dvp_ddr3_vga_top_0: "soc_system" instantiated dvp_ddr3_vga_top "dvp_ddr3_vga_top_0"
+Info: f2sdram_only_master: "soc_system" instantiated altera_jtag_avalon_master "f2sdram_only_master"
+Info: hps_0: "Running  for module: hps_0"
+Info: hps_0: HPS Main PLL counter settings: n = 0  m = 63
+Info: hps_0: HPS peripherial PLL counter settings: n = 0  m = 39
+Info: hps_0: "soc_system" instantiated altera_hps "hps_0"
+Info: led_pio: Starting RTL generation for module 'soc_system_led_pio'
+Info: led_pio:   Generation command is [exec E:/intelfpga/18.1/quartus/bin64/perl/bin/perl.exe -I E:/intelfpga/18.1/quartus/bin64/perl/lib -I E:/intelfpga/18.1/quartus/sopc_builder/bin/europa -I E:/intelfpga/18.1/quartus/sopc_builder/bin/perl_lib -I E:/intelfpga/18.1/quartus/sopc_builder/bin -I E:/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/common -I E:/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- E:/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=soc_system_led_pio --dir=E:/user/Temp/alt9562_5705855293003876491.dir/0111_led_pio_gen/ --quartus_dir=E:/intelfpga/18.1/quartus --verilog --config=E:/user/Temp/alt9562_5705855293003876491.dir/0111_led_pio_gen//soc_system_led_pio_component_configuration.pl  --do_build_sim=0  ]
+Info: led_pio: Done RTL generation for module 'soc_system_led_pio'
+Info: led_pio: "soc_system" instantiated altera_avalon_pio "led_pio"
+Info: mm_bridge_axi: "soc_system" instantiated altera_avalon_mm_bridge "mm_bridge_axi"
+Info: pll_1_cnn: "soc_system" instantiated altera_pll "pll_1_cnn"
+Info: avalon_st_adapter: Inserting channel_adapter: channel_adapter_0
+Info: sld_hub_controller_system_0: "soc_system" instantiated altera_sld_hub_controller_system "sld_hub_controller_system_0"
+Info: sysid_qsys: "soc_system" instantiated altera_avalon_sysid_qsys "sysid_qsys"
+Info: vcam_0: "soc_system" instantiated vcam "vcam_0"
+Info: vhdmi_0: "soc_system" instantiated vhdmi "vhdmi_0"
+Info: avalon_st_adapter: Inserting error_adapter: error_adapter_0
+Info: mm_interconnect_0: "soc_system" instantiated altera_mm_interconnect "mm_interconnect_0"
+Info: avalon_st_adapter: Inserting error_adapter: error_adapter_0
+Info: mm_interconnect_1: "soc_system" instantiated altera_mm_interconnect "mm_interconnect_1"
+Info: avalon_st_adapter: Inserting error_adapter: error_adapter_0
+Info: mm_interconnect_2: "soc_system" instantiated altera_mm_interconnect "mm_interconnect_2"
+Info: avalon_st_adapter: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_001: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_002: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_003: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_004: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_005: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_006: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_007: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_008: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_009: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_010: Inserting error_adapter: error_adapter_0
+Info: mm_interconnect_3: "soc_system" instantiated altera_mm_interconnect "mm_interconnect_3"
+Info: mm_interconnect_4: "soc_system" instantiated altera_mm_interconnect "mm_interconnect_4"
+Info: avalon_st_adapter: Inserting error_adapter: error_adapter_0
+Info: mm_interconnect_5: "soc_system" instantiated altera_mm_interconnect "mm_interconnect_5"
+Info: irq_mapper: "soc_system" instantiated altera_irq_mapper "irq_mapper"
+Info: rst_controller: "soc_system" instantiated altera_reset_controller "rst_controller"
+Info: jtag_phy_embedded_in_jtag_master: "f2sdram_only_master" instantiated altera_jtag_dc_streaming "jtag_phy_embedded_in_jtag_master"
+Info: timing_adt: "f2sdram_only_master" instantiated timing_adapter "timing_adt"
+Info: fifo: "f2sdram_only_master" instantiated altera_avalon_sc_fifo "fifo"
+Info: b2p: "f2sdram_only_master" instantiated altera_avalon_st_bytes_to_packets "b2p"
+Info: p2b: "f2sdram_only_master" instantiated altera_avalon_st_packets_to_bytes "p2b"
+Info: transacto: "f2sdram_only_master" instantiated altera_avalon_packets_to_master "transacto"
+Info: b2p_adapter: "f2sdram_only_master" instantiated channel_adapter "b2p_adapter"
+Info: p2b_adapter: "f2sdram_only_master" instantiated channel_adapter "p2b_adapter"
+Info: fpga_interfaces: "hps_0" instantiated altera_interface_generator "fpga_interfaces"
+Info: hps_io: "hps_0" instantiated altera_hps_io "hps_io"
+Info: Interconnect is inserted between master write_slave_addr_fixer.m0 and slave write_slave_to_source.in because the master has address signal 3 bit wide, but the slave is 1 bit wide.
+Info: Interconnect is inserted between master write_slave_addr_fixer.m0 and slave write_slave_to_source.in because the master has read signal 1 bit wide, but the slave is 0 bit wide.
+Info: Interconnect is inserted between master write_slave_addr_fixer.m0 and slave write_slave_to_source.in because the master has readdata signal 32 bit wide, but the slave is 0 bit wide.
+Info: Interconnect is inserted between master read_slave_addr_fixer.m0 and slave sink_to_read_slave.out because the master has write signal 1 bit wide, but the slave is 0 bit wide.
+Info: Interconnect is inserted between master read_slave_addr_fixer.m0 and slave sink_to_read_slave.out because the master has writedata signal 32 bit wide, but the slave is 0 bit wide.
+Info: Interconnect is inserted between master read_slave_addr_fixer.m0 and slave sink_to_read_slave.out because the master has address signal 3 bit wide, but the slave is 1 bit wide.
+Info: link: "sld_hub_controller_system_0" instantiated altera_mm_debug_link "link"
+Info: fabric: "sld_hub_controller_system_0" instantiated altera_debug_fabric "fabric"
+Info: hub_controller: "sld_hub_controller_system_0" instantiated altera_streaming_sld_hub_controller "hub_controller"
+Info: avalon_st_adapter: "sld_hub_controller_system_0" instantiated altera_avalon_st_adapter "avalon_st_adapter"
+Info: vcam_0_data_bus_translator: "mm_interconnect_0" instantiated altera_merlin_master_translator "vcam_0_data_bus_translator"
+Info: mm_bridge_axi_s0_translator: "mm_interconnect_0" instantiated altera_merlin_slave_translator "mm_bridge_axi_s0_translator"
+Info: vcam_0_data_bus_agent: "mm_interconnect_0" instantiated altera_merlin_master_agent "vcam_0_data_bus_agent"
+Info: mm_bridge_axi_s0_agent: "mm_interconnect_0" instantiated altera_merlin_slave_agent "mm_bridge_axi_s0_agent"
+Info: router: "mm_interconnect_0" instantiated altera_merlin_router "router"
+Info: router_005: "mm_interconnect_0" instantiated altera_merlin_router "router_005"
+Info: mm_bridge_axi_s0_burst_adapter: "mm_interconnect_0" instantiated altera_merlin_burst_adapter "mm_bridge_axi_s0_burst_adapter"
+Info: Reusing file E:/FPGA/ji_chuang_sai/ji_chuang_sai_7/Demo/7_10/C5TB_GHRD_CCIC7_C5TB_chusaide1_dantongdao/soc_system/synthesis/submodules/altera_avalon_st_pipeline_stage.sv
+Info: Reusing file E:/FPGA/ji_chuang_sai/ji_chuang_sai_7/Demo/7_10/C5TB_GHRD_CCIC7_C5TB_chusaide1_dantongdao/soc_system/synthesis/submodules/altera_avalon_st_pipeline_base.v
+Info: cmd_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux"
+Info: cmd_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux"
+Info: rsp_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux"
+Info: rsp_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux"
+Info: Reusing file E:/FPGA/ji_chuang_sai/ji_chuang_sai_7/Demo/7_10/C5TB_GHRD_CCIC7_C5TB_chusaide1_dantongdao/soc_system/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: avalon_st_adapter: "mm_interconnect_0" instantiated altera_avalon_st_adapter "avalon_st_adapter"
+Info: hps_0_h2f_lw_axi_master_agent: "mm_interconnect_1" instantiated altera_merlin_axi_master_ni "hps_0_h2f_lw_axi_master_agent"
+Info: Reusing file E:/FPGA/ji_chuang_sai/ji_chuang_sai_7/Demo/7_10/C5TB_GHRD_CCIC7_C5TB_chusaide1_dantongdao/soc_system/synthesis/submodules/altera_merlin_address_alignment.sv
+Info: router: "mm_interconnect_1" instantiated altera_merlin_router "router"
+Info: router_002: "mm_interconnect_1" instantiated altera_merlin_router "router_002"
+Info: cmd_demux: "mm_interconnect_1" instantiated altera_merlin_demultiplexer "cmd_demux"
+Info: cmd_mux: "mm_interconnect_1" instantiated altera_merlin_multiplexer "cmd_mux"
+Info: Reusing file E:/FPGA/ji_chuang_sai/ji_chuang_sai_7/Demo/7_10/C5TB_GHRD_CCIC7_C5TB_chusaide1_dantongdao/soc_system/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: rsp_demux: "mm_interconnect_1" instantiated altera_merlin_demultiplexer "rsp_demux"
+Info: rsp_mux: "mm_interconnect_1" instantiated altera_merlin_multiplexer "rsp_mux"
+Info: Reusing file E:/FPGA/ji_chuang_sai/ji_chuang_sai_7/Demo/7_10/C5TB_GHRD_CCIC7_C5TB_chusaide1_dantongdao/soc_system/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: avalon_st_adapter: "mm_interconnect_1" instantiated altera_avalon_st_adapter "avalon_st_adapter"
+Info: router: "mm_interconnect_2" instantiated altera_merlin_router "router"
+Info: router_002: "mm_interconnect_2" instantiated altera_merlin_router "router_002"
+Info: router_004: "mm_interconnect_2" instantiated altera_merlin_router "router_004"
+Info: cmd_demux: "mm_interconnect_2" instantiated altera_merlin_demultiplexer "cmd_demux"
+Info: cmd_mux: "mm_interconnect_2" instantiated altera_merlin_multiplexer "cmd_mux"
+Info: Reusing file E:/FPGA/ji_chuang_sai/ji_chuang_sai_7/Demo/7_10/C5TB_GHRD_CCIC7_C5TB_chusaide1_dantongdao/soc_system/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: rsp_demux: "mm_interconnect_2" instantiated altera_merlin_demultiplexer "rsp_demux"
+Info: rsp_mux: "mm_interconnect_2" instantiated altera_merlin_multiplexer "rsp_mux"
+Info: Reusing file E:/FPGA/ji_chuang_sai/ji_chuang_sai_7/Demo/7_10/C5TB_GHRD_CCIC7_C5TB_chusaide1_dantongdao/soc_system/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: cnn_top_0_load_read_avalon_rsp_width_adapter: "mm_interconnect_2" instantiated altera_merlin_width_adapter "cnn_top_0_load_read_avalon_rsp_width_adapter"
+Info: Reusing file E:/FPGA/ji_chuang_sai/ji_chuang_sai_7/Demo/7_10/C5TB_GHRD_CCIC7_C5TB_chusaide1_dantongdao/soc_system/synthesis/submodules/altera_merlin_address_alignment.sv
+Info: Reusing file E:/FPGA/ji_chuang_sai/ji_chuang_sai_7/Demo/7_10/C5TB_GHRD_CCIC7_C5TB_chusaide1_dantongdao/soc_system/synthesis/submodules/altera_merlin_burst_uncompressor.sv
+Info: router: "mm_interconnect_3" instantiated altera_merlin_router "router"
+Info: router_001: "mm_interconnect_3" instantiated altera_merlin_router "router_001"
+Info: router_002: "mm_interconnect_3" instantiated altera_merlin_router "router_002"
+Info: router_003: "mm_interconnect_3" instantiated altera_merlin_router "router_003"
+Info: mm_bridge_lw_axi_m0_limiter: "mm_interconnect_3" instantiated altera_merlin_traffic_limiter "mm_bridge_lw_axi_m0_limiter"
+Info: Reusing file E:/FPGA/ji_chuang_sai/ji_chuang_sai_7/Demo/7_10/C5TB_GHRD_CCIC7_C5TB_chusaide1_dantongdao/soc_system/synthesis/submodules/altera_avalon_sc_fifo.v
+Info: Reusing file E:/FPGA/ji_chuang_sai/ji_chuang_sai_7/Demo/7_10/C5TB_GHRD_CCIC7_C5TB_chusaide1_dantongdao/soc_system/synthesis/submodules/altera_avalon_st_pipeline_base.v
+Info: cmd_demux: "mm_interconnect_3" instantiated altera_merlin_demultiplexer "cmd_demux"
+Info: cmd_demux_001: "mm_interconnect_3" instantiated altera_merlin_demultiplexer "cmd_demux_001"
+Info: cmd_mux: "mm_interconnect_3" instantiated altera_merlin_multiplexer "cmd_mux"
+Info: Reusing file E:/FPGA/ji_chuang_sai/ji_chuang_sai_7/Demo/7_10/C5TB_GHRD_CCIC7_C5TB_chusaide1_dantongdao/soc_system/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: cmd_mux_001: "mm_interconnect_3" instantiated altera_merlin_multiplexer "cmd_mux_001"
+Info: Reusing file E:/FPGA/ji_chuang_sai/ji_chuang_sai_7/Demo/7_10/C5TB_GHRD_CCIC7_C5TB_chusaide1_dantongdao/soc_system/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: rsp_demux: "mm_interconnect_3" instantiated altera_merlin_demultiplexer "rsp_demux"
+Info: rsp_demux_001: "mm_interconnect_3" instantiated altera_merlin_demultiplexer "rsp_demux_001"
+Info: rsp_demux_003: "mm_interconnect_3" instantiated altera_merlin_demultiplexer "rsp_demux_003"
+Info: rsp_mux: "mm_interconnect_3" instantiated altera_merlin_multiplexer "rsp_mux"
+Info: Reusing file E:/FPGA/ji_chuang_sai/ji_chuang_sai_7/Demo/7_10/C5TB_GHRD_CCIC7_C5TB_chusaide1_dantongdao/soc_system/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: rsp_mux_001: "mm_interconnect_3" instantiated altera_merlin_multiplexer "rsp_mux_001"
+Info: Reusing file E:/FPGA/ji_chuang_sai/ji_chuang_sai_7/Demo/7_10/C5TB_GHRD_CCIC7_C5TB_chusaide1_dantongdao/soc_system/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: crosser: "mm_interconnect_3" instantiated altera_avalon_st_handshake_clock_crosser "crosser"
+Info: Reusing file E:/FPGA/ji_chuang_sai/ji_chuang_sai_7/Demo/7_10/C5TB_GHRD_CCIC7_C5TB_chusaide1_dantongdao/soc_system/synthesis/submodules/altera_avalon_st_clock_crosser.v
+Info: Reusing file E:/FPGA/ji_chuang_sai/ji_chuang_sai_7/Demo/7_10/C5TB_GHRD_CCIC7_C5TB_chusaide1_dantongdao/soc_system/synthesis/submodules/altera_avalon_st_pipeline_base.v
+Info: Reusing file E:/FPGA/ji_chuang_sai/ji_chuang_sai_7/Demo/7_10/C5TB_GHRD_CCIC7_C5TB_chusaide1_dantongdao/soc_system/synthesis/submodules/altera_std_synchronizer_nocut.v
+Info: hps_0_f2h_axi_slave_agent: "mm_interconnect_4" instantiated altera_merlin_axi_slave_ni "hps_0_f2h_axi_slave_agent"
+Info: Reusing file E:/FPGA/ji_chuang_sai/ji_chuang_sai_7/Demo/7_10/C5TB_GHRD_CCIC7_C5TB_chusaide1_dantongdao/soc_system/synthesis/submodules/altera_merlin_burst_uncompressor.sv
+Info: Reusing file E:/FPGA/ji_chuang_sai/ji_chuang_sai_7/Demo/7_10/C5TB_GHRD_CCIC7_C5TB_chusaide1_dantongdao/soc_system/synthesis/submodules/altera_avalon_sc_fifo.v
+Info: Reusing file E:/FPGA/ji_chuang_sai/ji_chuang_sai_7/Demo/7_10/C5TB_GHRD_CCIC7_C5TB_chusaide1_dantongdao/soc_system/synthesis/submodules/altera_merlin_address_alignment.sv
+Info: router: "mm_interconnect_4" instantiated altera_merlin_router "router"
+Info: router_001: "mm_interconnect_4" instantiated altera_merlin_router "router_001"
+Info: router_002: "mm_interconnect_4" instantiated altera_merlin_router "router_002"
+Info: cmd_demux: "mm_interconnect_4" instantiated altera_merlin_demultiplexer "cmd_demux"
+Info: cmd_demux_001: "mm_interconnect_4" instantiated altera_merlin_demultiplexer "cmd_demux_001"
+Info: cmd_mux: "mm_interconnect_4" instantiated altera_merlin_multiplexer "cmd_mux"
+Info: Reusing file E:/FPGA/ji_chuang_sai/ji_chuang_sai_7/Demo/7_10/C5TB_GHRD_CCIC7_C5TB_chusaide1_dantongdao/soc_system/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: rsp_mux: "mm_interconnect_4" instantiated altera_merlin_multiplexer "rsp_mux"
+Info: Reusing file E:/FPGA/ji_chuang_sai/ji_chuang_sai_7/Demo/7_10/C5TB_GHRD_CCIC7_C5TB_chusaide1_dantongdao/soc_system/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: router: "mm_interconnect_5" instantiated altera_merlin_router "router"
+Info: router_001: "mm_interconnect_5" instantiated altera_merlin_router "router_001"
+Info: router_002: "mm_interconnect_5" instantiated altera_merlin_router "router_002"
+Info: cmd_demux: "mm_interconnect_5" instantiated altera_merlin_demultiplexer "cmd_demux"
+Info: cmd_demux_001: "mm_interconnect_5" instantiated altera_merlin_demultiplexer "cmd_demux_001"
+Info: cmd_mux: "mm_interconnect_5" instantiated altera_merlin_multiplexer "cmd_mux"
+Info: Reusing file E:/FPGA/ji_chuang_sai/ji_chuang_sai_7/Demo/7_10/C5TB_GHRD_CCIC7_C5TB_chusaide1_dantongdao/soc_system/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: rsp_demux: "mm_interconnect_5" instantiated altera_merlin_demultiplexer "rsp_demux"
+Info: rsp_mux: "mm_interconnect_5" instantiated altera_merlin_multiplexer "rsp_mux"
+Info: Reusing file E:/FPGA/ji_chuang_sai/ji_chuang_sai_7/Demo/7_10/C5TB_GHRD_CCIC7_C5TB_chusaide1_dantongdao/soc_system/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: border: "hps_io" instantiated altera_interface_generator "border"
+Info: write_slave_to_source: Starting RTL generation for module 'soc_system_sld_hub_controller_system_0_link_write_slave_to_source'
+Info: write_slave_to_source:   Generation command is [exec E:/intelfpga/18.1/quartus/bin64/perl/bin/perl.exe -I E:/intelfpga/18.1/quartus/bin64/perl/lib -I E:/intelfpga/18.1/quartus/sopc_builder/bin/europa -I E:/intelfpga/18.1/quartus/sopc_builder/bin/perl_lib -I E:/intelfpga/18.1/quartus/sopc_builder/bin -I E:/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/common -I E:/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_fifo -- E:/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_fifo/generate_rtl.pl --name=soc_system_sld_hub_controller_system_0_link_write_slave_to_source --dir=E:/user/Temp/alt9562_5705855293003876491.dir/0186_write_slave_to_source_gen/ --quartus_dir=E:/intelfpga/18.1/quartus --verilog --config=E:/user/Temp/alt9562_5705855293003876491.dir/0186_write_slave_to_source_gen//soc_system_sld_hub_controller_system_0_link_write_slave_to_source_component_configuration.pl  --do_build_sim=0  ]
+Info: write_slave_to_source: Done RTL generation for module 'soc_system_sld_hub_controller_system_0_link_write_slave_to_source'
+Info: write_slave_to_source: "link" instantiated altera_avalon_fifo "write_slave_to_source"
+Info: h2t_timing_adapter: "link" instantiated timing_adapter "h2t_timing_adapter"
+Info: h2t_data_matcher: "link" instantiated altera_mm_debug_link_datawidth_matcher "h2t_data_matcher"
+Info: h2t_channel_adapter: "link" instantiated channel_adapter "h2t_channel_adapter"
+Info: t2h_channel_adapter: "link" instantiated channel_adapter "t2h_channel_adapter"
+Info: t2h_timing_adapter: "link" instantiated timing_adapter "t2h_timing_adapter"
+Info: sink_to_read_slave: Starting RTL generation for module 'soc_system_sld_hub_controller_system_0_link_sink_to_read_slave'
+Info: sink_to_read_slave:   Generation command is [exec E:/intelfpga/18.1/quartus/bin64/perl/bin/perl.exe -I E:/intelfpga/18.1/quartus/bin64/perl/lib -I E:/intelfpga/18.1/quartus/sopc_builder/bin/europa -I E:/intelfpga/18.1/quartus/sopc_builder/bin/perl_lib -I E:/intelfpga/18.1/quartus/sopc_builder/bin -I E:/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/common -I E:/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_fifo -- E:/intelfpga/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_fifo/generate_rtl.pl --name=soc_system_sld_hub_controller_system_0_link_sink_to_read_slave --dir=E:/user/Temp/alt9562_5705855293003876491.dir/0192_sink_to_read_slave_gen/ --quartus_dir=E:/intelfpga/18.1/quartus --verilog --config=E:/user/Temp/alt9562_5705855293003876491.dir/0192_sink_to_read_slave_gen//soc_system_sld_hub_controller_system_0_link_sink_to_read_slave_component_configuration.pl  --do_build_sim=0  ]
+Info: sink_to_read_slave: Done RTL generation for module 'soc_system_sld_hub_controller_system_0_link_sink_to_read_slave'
+Info: sink_to_read_slave: "link" instantiated altera_avalon_fifo "sink_to_read_slave"
+Info: connection_id_rom: "link" instantiated altera_connection_identification_rom_wrapper "connection_id_rom"
+Info: mm_mgmt: "link" instantiated altera_mm_mgmt_wrapper "mm_mgmt"
+Info: avalon_st_adapter: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_001: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_002: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_003: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_004: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_005: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_006: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_007: Inserting error_adapter: error_adapter_0
+Info: mm_interconnect_0: "link" instantiated altera_mm_interconnect "mm_interconnect_0"
+Info: mm_interconnect_1: "link" instantiated altera_mm_interconnect "mm_interconnect_1"
+Info: mm_interconnect_2: "link" instantiated altera_mm_interconnect "mm_interconnect_2"
+Info: demux: "fabric" instantiated demultiplexer "demux"
+Info: mux: "fabric" instantiated multiplexer "mux"
+Info: mgmt_demux: "fabric" instantiated demultiplexer "mgmt_demux"
+Info: mgmt_time_adap: "fabric" instantiated timing_adapter "mgmt_time_adap"
+Info: mgmt_reset_0: "fabric" instantiated altera_mgmt_reset "mgmt_reset_0"
+Info: core: "hub_controller" instantiated altera_streaming_sld_hub_controller_core "core"
+Info: channel_adapter_0: "avalon_st_adapter" instantiated channel_adapter "channel_adapter_0"
+Info: error_adapter_0: "avalon_st_adapter" instantiated error_adapter "error_adapter_0"
+Info: error_adapter_0: "avalon_st_adapter" instantiated error_adapter "error_adapter_0"
+Info: router: "mm_interconnect_0" instantiated altera_merlin_router "router"
+Info: router_001: "mm_interconnect_0" instantiated altera_merlin_router "router_001"
+Info: cmd_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux"
+Info: cmd_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux"
+Info: Reusing file E:/FPGA/ji_chuang_sai/ji_chuang_sai_7/Demo/7_10/C5TB_GHRD_CCIC7_C5TB_chusaide1_dantongdao/soc_system/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: rsp_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux"
+Info: rsp_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux"
+Info: Reusing file E:/FPGA/ji_chuang_sai/ji_chuang_sai_7/Demo/7_10/C5TB_GHRD_CCIC7_C5TB_chusaide1_dantongdao/soc_system/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: soc_system: Done "soc_system" with 123 modules, 216 files
+Info: qsys-generate succeeded.
+Info: Finished: Create HDL design files for synthesis

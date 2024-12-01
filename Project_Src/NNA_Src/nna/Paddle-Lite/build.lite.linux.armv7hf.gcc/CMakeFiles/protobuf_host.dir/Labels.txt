@@ -1,0 +1,13 @@
+# Target labels
+ protobuf_host
+# Source files and their labels
+/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/CMakeFiles/protobuf_host
+/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/CMakeFiles/protobuf_host.rule
+/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/CMakeFiles/protobuf_host-complete.rule
+/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/third_party/protobuf_host/src/protobuf_host-stamp/protobuf_host-install.rule
+/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/third_party/protobuf_host/src/protobuf_host-stamp/protobuf_host-mkdir.rule
+/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/third_party/protobuf_host/src/protobuf_host-stamp/protobuf_host-download.rule
+/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/third_party/protobuf_host/src/protobuf_host-stamp/protobuf_host-update.rule
+/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/third_party/protobuf_host/src/protobuf_host-stamp/protobuf_host-patch.rule
+/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/third_party/protobuf_host/src/protobuf_host-stamp/protobuf_host-configure.rule
+/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/third_party/protobuf_host/src/protobuf_host-stamp/protobuf_host-build.rule

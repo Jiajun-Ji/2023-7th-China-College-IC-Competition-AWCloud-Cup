@@ -1,0 +1,13 @@
+# Target labels
+ extern_protobuf
+# Source files and their labels
+/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/CMakeFiles/extern_protobuf
+/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/CMakeFiles/extern_protobuf.rule
+/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/CMakeFiles/extern_protobuf-complete.rule
+/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/third_party/protobuf/src/extern_protobuf-stamp/extern_protobuf-install.rule
+/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/third_party/protobuf/src/extern_protobuf-stamp/extern_protobuf-mkdir.rule
+/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/third_party/protobuf/src/extern_protobuf-stamp/extern_protobuf-download.rule
+/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/third_party/protobuf/src/extern_protobuf-stamp/extern_protobuf-update.rule
+/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/third_party/protobuf/src/extern_protobuf-stamp/extern_protobuf-patch.rule
+/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/third_party/protobuf/src/extern_protobuf-stamp/extern_protobuf-configure.rule
+/opt/nna/Paddle-Lite/build.lite.linux.armv7hf.gcc/third_party/protobuf/src/extern_protobuf-stamp/extern_protobuf-build.rule
