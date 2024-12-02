@@ -365,12 +365,9 @@ dvp_ddr3模块一帧传输完成时间+memcpy的时间
 将原始图像存入 BRAM之前，需要产生相应的 BRAM 地址。根据原始图像的场信号per_img_vsync和行信号 per_img_href，对原始图像进行列统计img_hs_cnt ϵ [0,C_SRC_IMG_WIDTH-1]和行统计img_vs_cnt ϵ
 
  [0,C_SRC_IMG_HEIGHT-1]，其中C_SRC_IMG_WIDTH和C_SRC_IMG_HEIGHT分别表示原始图像的宽度和高度。BRAM地址的计算公式如下所示，其中img_hs_cnt用于产生行内像素的地址、img_vs_cnt[2:1]用于产生不同行的基地址。
-$$
-\mathrm{bram}_{-}a_{-}\mathrm{waddr}=
-\begin{Bmatrix}
-\mathrm{img}_{-}\mathrm{vs}_{-}\mathrm{cnt}[2:1],10^{\prime}\mathrm{b}0
-\end{Bmatrix}+\mathrm{img}_{-}\mathrm{hs}_{-}\mathrm{cnt}
-$$
+
+![块间公式](https://latex.codecogs.com/svg.image?\mathrm{bram}_{-}a_{-}\mathrm{waddr}=\begin{Bmatrix}\mathrm{img}_{-}\mathrm{vs}_{-}\mathrm{cnt}[2:1],10^{\prime}\mathrm{b}0\end{Bmatrix}&plus;\mathrm{img}_{-}\mathrm{hs}_{-}\mathrm{cnt})
+
 一个BRAM大小为4*1024代表4行。因此使用img_vs_cnt[2:1]产生这四行的地址，然后再使用img_hs_cnt产生其行内像素的地址。img_hs_cnt计数的行上限受输入图像dvp行有效信号限制，其上限为输入原始图像行长度。为什么使用img_vs_cnt[2:1]产生这四行的地址我们讲完写使能就知道了。
 
 写地址解决了，接下来是写使能问题，由于BRAM0和BRAM1存储的行是奇数行，BRAM2和BRAM3存储的行是偶数行，因此我们只需要生成两个写使能信号可以对当前有效行数是奇数还是偶数进行判断即可，这很简单。因此我们的写使能信号在场同步有效以及行同步有效时，使用img_vs_cnt[0]判断当前行是奇偶，这是因为img_vs_cnt[0]在最开始第1行时为0，代表奇数行，第二行时为1代表偶数行，如此往复我们就可以通过img_vs_cnt[0]判断奇偶行。
@@ -384,9 +381,6 @@ $$
 (3)在进行双线性插值算法之前，需要计算原始图像与目标图像在水平和垂直方向上的比率(即目标图像映射到原始图像的坐标步进)C_X_RATIO和C_Y_RATI O。已知原始图像的分辨率为400x320、目标图像的分辨率为300x300，且要求将比率定标为16位小数，故C_X_RATIO和C_Y_RATIO的计算结果如下:
 
 ![块级公式](https://latex.codecogs.com/svg.image?&space;C_{-}X_{-}\mathrm{RATIO}=\mathrm{floor}\left(\frac{C_{-}SRC_{-}IMG_{-}\mathrm{WIDTH}}{C_{-}DST_{-}IMG_{-}\mathrm{WIDTH}}\times2^{16}\right)=\mathrm{floor}\left(\frac{400}{300}\times2^{16}\right)=87381C_{-}Y_{-}\mathrm{RATIO}=\mathrm{floor}\left(\frac{C_{-}SRC_{-}IMG_{-}\mathrm{HEIGHT}}{C_{-}DST_{-}IMG_{-}\mathrm{HEIGHT}}\times2^{16}\right)=\mathrm{floor}\left(\frac{320}{300}\times2^{16}\right)=69905)
-$$
-C_{-}X_{-}\mathrm{RATIO}=\mathrm{floor}\left(\frac{C_{-}SRC_{-}IMG_{-}\mathrm{WIDTH}}{C_{-}DST_{-}IMG_{-}\mathrm{WIDTH}}\times2^{16}\right)=\mathrm{floor}\left(\frac{400}{300}\times2^{16}\right)=87381C_{-}Y_{-}\mathrm{RATIO}=\mathrm{floor}\left(\frac{C_{-}SRC_{-}IMG_{-}\mathrm{HEIGHT}}{C_{-}DST_{-}IMG_{-}\mathrm{HEIGHT}}\times2^{16}\right)=\mathrm{floor}\left(\frac{320}{300}\times2^{16}\right)=69905
-$$
 
 
 注意C_X_RATIO和C_Y_RATIO需要使用17’进行存储
