@@ -382,6 +382,8 @@ $$
 (2)当每行像素缓存到BRAM后，将行统计img_vs_cnt作为标签存入异步FIFO中后续进行双线性插值放大算法时，会根据该标签判断BRAM中是否已经缓存了插值所需要的两行像素。
 
 (3)在进行双线性插值算法之前，需要计算原始图像与目标图像在水平和垂直方向上的比率(即目标图像映射到原始图像的坐标步进)C_X_RATIO和C_Y_RATI O。已知原始图像的分辨率为400x320、目标图像的分辨率为300x300，且要求将比率定标为16位小数，故C_X_RATIO和C_Y_RATIO的计算结果如下:
+
+![块级公式](https://latex.codecogs.com/svg.image?&space;C_{-}X_{-}\mathrm{RATIO}=\mathrm{floor}\left(\frac{C_{-}SRC_{-}IMG_{-}\mathrm{WIDTH}}{C_{-}DST_{-}IMG_{-}\mathrm{WIDTH}}\times2^{16}\right)=\mathrm{floor}\left(\frac{400}{300}\times2^{16}\right)=87381C_{-}Y_{-}\mathrm{RATIO}=\mathrm{floor}\left(\frac{C_{-}SRC_{-}IMG_{-}\mathrm{HEIGHT}}{C_{-}DST_{-}IMG_{-}\mathrm{HEIGHT}}\times2^{16}\right)=\mathrm{floor}\left(\frac{320}{300}\times2^{16}\right)=69905)
 $$
 C_{-}X_{-}\mathrm{RATIO}=\mathrm{floor}\left(\frac{C_{-}SRC_{-}IMG_{-}\mathrm{WIDTH}}{C_{-}DST_{-}IMG_{-}\mathrm{WIDTH}}\times2^{16}\right)=\mathrm{floor}\left(\frac{400}{300}\times2^{16}\right)=87381C_{-}Y_{-}\mathrm{RATIO}=\mathrm{floor}\left(\frac{C_{-}SRC_{-}IMG_{-}\mathrm{HEIGHT}}{C_{-}DST_{-}IMG_{-}\mathrm{HEIGHT}}\times2^{16}\right)=\mathrm{floor}\left(\frac{320}{300}\times2^{16}\right)=69905
 $$
