@@ -6,7 +6,7 @@
 
 系统总体运行由HPS端调度，FPGA端作为HPS端并行运行加速部分，主要作用是为HPS端执行卷积加速、HDMI显示等功能，因此，我们可以通过将HPS端执行的数据重排、预处理、resize、plot等操作移动到FPGA端进行并行运行，这样就可以加速整个系统的运行速度。
 
-![image-20241202125611901](D:\Learning\JiChuangSai\2023-7th-China-College-IC-Competition-AWCloud-Cup\readme.assets\image-20241202125611901.png)
+![image-20241202125611901](readme.assets/image-20241202125611901.png)
 
 #### PL PS通信
 
@@ -46,11 +46,11 @@ FPGA端与HPS端沟通主要通过多个总线，有由FPGA端发起的数据传
 
 我们设计了PL端绘制预测框的IP，通过h2f_lw_bridge控制状态寄存器，从而控制PL_Plot IP的绘制，其状态寄存器说明如下图所示。
 
-![image-20241202130044402](D:\Learning\JiChuangSai\2023-7th-China-College-IC-Competition-AWCloud-Cup\readme.assets\image-20241202130044402.png)
+![image-20241202130044402](readme.assets/image-20241202130044402.png)
 
 我们设计了一个SSD_Detction进程，其从BUF2~BUF3中读取经过PL侧Resize后的300*300单通道图像，转换为Tensor结构后进行使用PaddleLite推理，将推理结果写入PL_Plot寄存器，从而实现推理结果的叠加显示。
 
-![image-20241202130035476](D:\Learning\JiChuangSai\2023-7th-China-College-IC-Competition-AWCloud-Cup\readme.assets\image-20241202130035476.png)
+![image-20241202130035476](readme.assets/image-20241202130035476.png)
 
 #### 分区赛方案
 
@@ -63,7 +63,7 @@ FPGA端与HPS端沟通主要通过多个总线，有由FPGA端发起的数据传
 
 注：由于ssd_hdmi进程运行较快，为了降低CPU资源占用，我们使用usleep() 函数将进程休眠，并且由于系统中大部分进程均运行于cpu0上，为了保证推理速率，我们将ssd_hdmi视频推流进程绑定于cpu0运行，推理进程ssd_detction独占cpu1。并提高推理进程ssd_detction的任务优先级为0，降低视频推流进程ssd_hdmi的任务优先级为**39**。如此可减少两个进程对于资源的抢占，在不降低视频流帧率的情况下，加快推理速度。
 
-![image-20241202130123204](D:\Learning\JiChuangSai\2023-7th-China-College-IC-Competition-AWCloud-Cup\readme.assets\image-20241202130123204.png)
+![image-20241202130123204](readme.assets/image-20241202130123204.png)
 
 ## 二、关键技术分析
 
@@ -79,7 +79,7 @@ FPGA端与HPS端沟通主要通过多个总线，有由FPGA端发起的数据传
 
 **•绘制dvp_ddr3_vga总体框图如下：**
 
-![image-20241202130656412](D:\Learning\JiChuangSai\2023-7th-China-College-IC-Competition-AWCloud-Cup\readme.assets\image-20241202130656412.png)
+![image-20241202130656412](readme.assets/image-20241202130656412.png)
 
 **•dvp_ddr3_vga****模块组成如下：
 
@@ -130,9 +130,9 @@ $440*380*30=5016000≈5MHz$
 
 **•dvp_ddr3_vga*端口如下：
 
-<img src="D:\Learning\JiChuangSai\2023-7th-China-College-IC-Competition-AWCloud-Cup\readme.assets\image-20241202131231593.png" alt="image-20241202131231593" style="zoom: 50%;" />
+<img src="readme.assets/image-20241202131231593.png" alt="image-20241202131231593" style="zoom:50%;" />
 
-<img src="D:\Learning\JiChuangSai\2023-7th-China-College-IC-Competition-AWCloud-Cup\readme.assets\image-20241202131137873.png" alt="image-20241202131137873" style="zoom:50%;" />
+<img src="readme.assets/image-20241202131137873.png" alt="image-20241202131137873" style="zoom:50%;" />
 
 图2.1.2 dvp_ddr3_vga模块端口
 
@@ -218,7 +218,7 @@ dvp_ddr3模块一帧传输完成时间+memcpy的时间
 
 双buffer写状态机如下：
 
-![image-20241202131043761](D:\Learning\JiChuangSai\2023-7th-China-College-IC-Competition-AWCloud-Cup\readme.assets\image-20241202131043761.png)
+![image-20241202131043761](readme.assets/image-20241202131043761.png)
 
 图2.1.3 dvp_ddr3_vga_top的读写状态机
 
@@ -228,7 +228,7 @@ dvp_ddr3模块一帧传输完成时间+memcpy的时间
 
 使用双buffer连续传输意味着HDMI显示完全由PL端控制，无需PS端进行控制，但是由于我们需要在显示上叠加推理结果框等，想要完全实现双buffer连续传输，我们需要实现PL端绘制推理结果框。在没有实现上述模块时，我们只让dvp_ddr3由PL端控制，ddr3_vga的地址切换由PS端控制，因此buffer结构如下：
 
-![image-20241202131057184](D:\Learning\JiChuangSai\2023-7th-China-College-IC-Competition-AWCloud-Cup\readme.assets\image-20241202131057184.png)
+![image-20241202131057184](readme.assets/image-20241202131057184.png)
 
 图2.1.4 普通的四buffer
 
@@ -244,7 +244,7 @@ dvp_ddr3模块一帧传输完成时间+memcpy的时间
 
 三通道信号时序如下图：
 
-![image-20241202131327785](D:\Learning\JiChuangSai\2023-7th-China-College-IC-Competition-AWCloud-Cup\readme.assets\image-20241202131327785.png)       
+![image-20241202131327785](readme.assets/image-20241202131327785.png)       
 
 图2.1.5 三通道dvp_rgb888的时序
 
@@ -254,7 +254,7 @@ dvp_ddr3模块一帧传输完成时间+memcpy的时间
 
 单通道采样信号时序如下图：
 
-![image-20241202131332480](D:\Learning\JiChuangSai\2023-7th-China-College-IC-Competition-AWCloud-Cup\readme.assets\image-20241202131332480.png)
+![image-20241202131332480](readme.assets/image-20241202131332480.png)
 
 图2.1.6 单通道dvp_rgb888的时序
 
@@ -268,7 +268,7 @@ dvp_ddr3模块一帧传输完成时间+memcpy的时间
 
 以下是第一行对应的时序图：
 
-![image-20241202131338772](D:\Learning\JiChuangSai\2023-7th-China-College-IC-Competition-AWCloud-Cup\readme.assets\image-20241202131338772.png)
+![image-20241202131338772](readme.assets/image-20241202131338772.png)
 
 图2.1.7 三通道vga_ctrl的时序
 
@@ -286,7 +286,7 @@ dvp_ddr3模块一帧传输完成时间+memcpy的时间
 
 **·具体原理如下：
 
-![image-20241202131539642](D:\Learning\JiChuangSai\2023-7th-China-College-IC-Competition-AWCloud-Cup\readme.assets\image-20241202131539642.png)
+![image-20241202131539642](readme.assets/image-20241202131539642.png)
 
 图2.1.8 双线性插值原理
 
@@ -306,7 +306,7 @@ dvp_ddr3模块一帧传输完成时间+memcpy的时间
 
 同时我们进行双线性插值时，需要同时从BRAM 中读出近邻4个像素,我们为了降低设计难度，采用4个BRAM对图像进行行缓存，每个BRAM分别输出近邻4个像素中的其中1个。如下图所示：
 
-  ![image-20241202131825034](D:\Learning\JiChuangSai\2023-7th-China-College-IC-Competition-AWCloud-Cup\readme.assets\image-20241202131825034.png)
+![image-20241202131825034](readme.assets/image-20241202131825034.png)
 
 图2.1.9 BRAM的存储结果
 
@@ -341,7 +341,7 @@ $$
 
 (4)目标图像的坐标(y_cnt,x_cnt)及目标图像映射到原始图像的坐标(y_dec,x_dec)均由控制器负责完成。下图所示为控制器状态机，控制器状态跳转的说明，如表所示。
 
-![image-20241202132428262](D:\Learning\JiChuangSai\2023-7th-China-College-IC-Competition-AWCloud-Cup\readme.assets\image-20241202132428262.png)
+![image-20241202132428262](readme.assets/image-20241202132428262.png)
 
 图2.1.10 坐标映射的状态机控制
 
@@ -384,7 +384,7 @@ $$
 
 **·使用resiz**后的**buffer**结构：
 
-![image-20241202132448565](D:\Learning\JiChuangSai\2023-7th-China-College-IC-Competition-AWCloud-Cup\readme.assets\image-20241202132448565.png)
+![image-20241202132448565](readme.assets/image-20241202132448565.png)
 
 ​                      图2.1.11 使用resize后的buffer结构
 
@@ -478,7 +478,7 @@ $$
 
 **·**使用resize**以及pl_plot**后的**buffer**结构：
 
-![image-20241202132557472](D:\Learning\JiChuangSai\2023-7th-China-College-IC-Competition-AWCloud-Cup\readme.assets\image-20241202132557472.png)
+![image-20241202132557472](readme.assets/image-20241202132557472.png)
 
 ​                                             图2.1.12 使用resize以及pl_plot后的buffer结构
 
@@ -486,7 +486,7 @@ $$
 
 **·**使用resize**以及pl_plot**的**dvp_ddr3_vga**模块框图：
 
-  ![image-20241202132532844](D:\Learning\JiChuangSai\2023-7th-China-College-IC-Competition-AWCloud-Cup\readme.assets\image-20241202132532844.png)
+![image-20241202132532844](readme.assets/image-20241202132532844.png)
 
 图2.1.13 使用resize以及pl_plot的dvp_ddr3_vga模块框图
 
