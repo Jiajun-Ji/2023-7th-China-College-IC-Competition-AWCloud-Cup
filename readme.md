@@ -38,7 +38,7 @@ CUG本科生团队-**冰糖葫芦儿**
 
 |   `-- paddle_frame	FPGA侧应用程序`
 
-|`-- Project_Src	工程源码`
+|`-- Project_Src		工程源码`
 
 |   `|-- FPGA_Src		FPGA侧Quartus工程源码`
 
