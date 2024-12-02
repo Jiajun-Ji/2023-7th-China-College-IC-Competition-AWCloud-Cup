@@ -10,6 +10,27 @@
 
 @copyright 2024.12.2	Jiajun Ji. All rights reserved.
 
+**仓库目录**
+
+.
+|`-- Dataset`
+|   `-- aluminum_ssd_voc.tar.gz	赛事方提供的铝材数据集`
+|`-- Doc		包含赛事方提供的使用文档、以及我们团队的技术文档及PPT`
+|   |-- \264\360\261\347PPT.pdf
+|   |-- \310\374\312\302\271\331\267\275\316\304\265\265
+|   |-- \315\305\266\323\316\304\265\265
+|   `-- \324\313\320\320\326\270\304\317.txt
+|-- FPGA_Project	FPGA侧部署工程，包括应用程序及Bit流文件`	
+|   `|-- C5TB_top.rbf`
+|   `|-- C5TB_top.sof`
+|   `-- paddle_frame	FPGA侧应用程序`
+|`-- Project_Src	工程源码`
+|   `|-- FPGA_Src		FPGA侧Quartus工程源码`
+|   `|-- Model_Training	基于Paddle的模型训练及压缩源码`
+|   `|-- NNA_Src		主办方提供的编译脚本`
+|   `-- amm_driver	PS侧Linux的amm驱动程序`
+|`-- readme.assets`
+
 ## 一、总体概述
 
 ### 1.1 系统框图

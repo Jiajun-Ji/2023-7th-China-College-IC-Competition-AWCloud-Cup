@@ -1,0 +1,45 @@
+集创赛初赛验收
+
+队伍编号：CICC1577
+密码： slave1577
+
+AIEP上可执行文件路径：/opt/paddle_frame/
+
+我们提供三个脚本：
+1.  ./inference_once.sh 类似官方Demo，是我们修改过的，完成一次推理过程（初赛中inference_time的统计)
+     我们的指标是64ms.
+2.  ./run.sh  完成实时的推理，从vcam中获取图片进行推理，并将推理结果通过LW总线传给PL_PLOT ip，进行预测框的绘制。
+3.  ./pre.sh 自己写的预处理脚本，用于Kill 无关进程并且调整进程优先级，请评委烧录硬件工程后，使用该脚本进行预处理。
+
+-----------------------操作过程-------------------------
+由于我们使用一个进程进行推流与推理工作，请评委使用 MobaXterm 打开一个终端。
+（MobaxTerm的使用： 通过我们的AIEP IP地址（172.16.208.120）进行连接，用户名为root，密码为AIEP实时更新。）
+
+
+一、硬件工程的烧录
+1. 请评委在windows下找到    \工程源码及端侧压缩包\端侧压缩包   文件夹，将其中的rbf、sof文件上传至AIEP
+
+
+二、paddle_frame的上传
+1. 请评委使用MobaXterm打开终端，切换到/opt目录下，请评委将端侧压缩包中的  paddle_frame.tar.gz 文件上传到/opt目录
+      可以在MobaXterm右侧的目录系统中打开opt目录，从windows将paddle_frame.tar.gz拖拽进目录，即可上传。
+      （若系统中已经存在paddle_frame文件夹以及paddle_frame.tar.gz，请评委删除即可，并重新上传）
+2. 请评委使用 tar -zxvf paddle_frame.tar.gz  指令，解压该压缩包
+
+
+三、一帧推理的测试（推理时间的测试）
+1. 请评委打开终端 cd /opt/paddle_frame/ 指令切换到paddle_frame目录下。
+2. 请运行 ./pre.sh 进行无关进程的关闭与优先级设置。
+3. 运行 ./inference_once 运行单独一帧图片的推理，运行完毕后，推理结果将写入1_result.jpg，可在终端看到推理时间为64ms。
+
+
+四、实时推理程序的运行（位于AIEP上执行）
+1. 请评委使用MobaXterm打开一个终端 均使用 cd /opt/paddle_frame/ 指令切换到paddle_frame目录下。
+2. 请评委打开AIEP的外设，摄像头以及HDMI，并令摄像头读取测试视频作为视频输入。
+3. 运行 ./pre.sh 进行无关进程的关闭与优先级设置（在一个终端上运行即可）。
+4. 运行./run.sh。（ctrl + c可退出程序）
+
+
+
+
+
