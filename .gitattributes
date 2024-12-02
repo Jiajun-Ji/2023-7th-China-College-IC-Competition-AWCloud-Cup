@@ -1,2 +1,0 @@
-Dataset/aluminum_ssd_voc.tar.gz filter=lfs diff=lfs merge=lfs -text
-Doc/赛事官方文档/集创赛赛题解析0228.mp4 filter=lfs diff=lfs merge=lfs -text
